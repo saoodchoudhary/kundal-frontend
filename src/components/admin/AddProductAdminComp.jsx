@@ -76,25 +76,6 @@ if(product.price === "paid")
             .catch(err => console.log(err))
 
 
-        // try {
-        //     const response = await fetch(process.env.REACT_APP_API_URL + '/addProduct', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify(product),
-        //     });
-
-        //     if (response.ok) {
-        //         // Product added successfully, handle the response
-        //         console.log('Product added successfully!');
-        //     } else {
-        //         // Handle errors if any
-        //         console.error('Failed to add product.');
-        //     }
-        // } catch (error) {
-        //     console.error('Error:', error);
-        // }
     };
  
 

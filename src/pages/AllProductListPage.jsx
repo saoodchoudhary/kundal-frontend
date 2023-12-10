@@ -6,7 +6,6 @@ import { Dialog, Disclosure,  Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import {  FunnelIcon, MinusIcon, PlusIcon,  } from '@heroicons/react/20/solid'
 import { NavLink,  useParams } from 'react-router-dom'
-// import BannerSlider from '../components/BannerSlider'
 
 
 
@@ -36,7 +35,6 @@ const AllProductListPage = () => {
   }, [id])
   return (
     <div className="bg-white">
-      {/* {images.length !== 0 && <BannerSlider images={images} />} */}
       <div>
         {/* Mobile filter dialog */}
         <Transition.Root show={mobileFiltersOpen} as={Fragment}>

@@ -3,15 +3,6 @@ import HtmlReactParser from "html-react-parser"
 const TabComponent = ({discription, fragrance, ingredients}) => {
   const [activeTab, setActiveTab] = useState('chat');
 
-  const tabBtnStyle = {
-    cursor: 'pointer',
-    border: 'none',
-    outline: 'none',
-    padding: '8px 16px',
-    marginRight: '10px',
-    borderRadius: '4px',
-    transition: 'background-color 0.3s ease',
-  };
 
 
 

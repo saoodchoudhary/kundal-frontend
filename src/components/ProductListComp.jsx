@@ -6,13 +6,13 @@ const ProductListComp = () => {
   const [item, setItem] = useState([]);
 
 
+
+  useEffect(()=>{
   const fetchData = async () =>{
     const res = await fetch(`${process.env.REACT_APP_API_URL}/product`);
     const data = await res.json();
     setItem(data)
   }
-
-  useEffect(()=>{
     fetchData();
   },[])
   return (

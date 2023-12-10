@@ -9,7 +9,8 @@ const AdminHomeComp = () => {
 
 
   
-  
+ 
+    useEffect(()=>{ 
     const fetchData = async () =>{
       const res = await fetch(`${process.env.REACT_APP_API_URL}/product`);
       const data = await res.json();
@@ -31,7 +32,6 @@ const AdminHomeComp = () => {
       setCategoryLength(data.length)
     }
   
-    useEffect(()=>{
       fetchData();
       fetOrder();
       fetAdmin();

@@ -7,13 +7,14 @@ const CategoryListPage = () => {
     const {id} = useParams();
 
 
+    useEffect(()=>{
+      
     const fetchData = async () =>{
       const res = await fetch(`${process.env.REACT_APP_API_URL}/product/category/${id}`);
       const data = await res.json();
       setItem(data)
     }
   
-    useEffect(()=>{
       fetchData();
     },[id])
   return (
