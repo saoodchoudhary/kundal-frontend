@@ -7,7 +7,6 @@ import { MdDelete } from "react-icons/md";
 const AdminCategoryComp = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
-  const [errMsg, setErrMsg] = useState('')
 
   const [items, setItems] = useState([])
   const [uiUpdate, setUiUpdate] = useState(true)
@@ -40,7 +39,6 @@ const AdminCategoryComp = () => {
         setUiUpdate(!uiUpdate)
         if(!response.data.success)
         {
-            setErrMsg(response.data.msg)
 
         }else{
             
@@ -61,6 +59,7 @@ const AdminCategoryComp = () => {
     <div className=" p-4">
       
       <h2 className="text-2xl font-semibold mb-4">Category Managment</h2>
+      {}
       <div className='xl:max-w-[30%] mx-12 my-12'>
       <form>
           <div className="mb-4 ">

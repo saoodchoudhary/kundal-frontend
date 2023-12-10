@@ -9,7 +9,6 @@ const UserManagement = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errMsg, setErrMsg] = useState('')
 
   const [items, setItems] = useState([])
   const [uiUpdate, setUiUpdate] = useState(true)
@@ -43,7 +42,6 @@ const UserManagement = () => {
       
         if(!response.data.success)
         {
-            setErrMsg(response.data.msg)
 
         }else{
             
