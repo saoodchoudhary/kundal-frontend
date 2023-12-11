@@ -151,7 +151,7 @@ const Navbar = () => {
                 <Disclosure.Button
                   key={item.name}
                   as="a"
-                  to={`/product/category/${item.name}`}
+                  href={`/product/category/${item.name}`}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-white hover:bg-blue-700 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium'
