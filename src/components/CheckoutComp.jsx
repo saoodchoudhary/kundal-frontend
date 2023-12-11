@@ -4,37 +4,41 @@ import { UserCartAction } from '../store/userCartSlice';
 
 import {useNavigate} from "react-router-dom"
 import axios from 'axios';
+import Loading from './Loading';
 
 const CheckoutComp = () => {
  const item = useSelector((state)=> state.userCart.cartItem)
  const [emailPurchased, setEmailPurchased] = useState(0)
  const [phonePurchased, setPhonePurchased] = useState(0)
  const [onlyThreeFree, setOnlyThreeFree] = useState(false)
+ 
+ const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const firstNameRef = useRef();
   const lastNameRef = useRef();
-  const addressRef = useRef();
-  const zipCodeRef = useRef();
-  const cityRef = useRef();
-  const stateRef = useRef();
-  const countryRef = useRef();
+  const areaRef = useRef();
+  const jadaRef = useRef();
+  const streetRef = useRef();
+  const blockRef = useRef();
+  const houseNumberRef = useRef();
   const phoneRef = useRef();
   const emailRef = useRef();
 
   const handleOnSubmit = (e)=>{
     e.preventDefault();
-
-    
+  
+    setIsLoading(true)
 
    const  firstName = firstNameRef.current.value
    const  lastName = lastNameRef.current.value
-   const  address = addressRef.current.value
-   const  zipCode = zipCodeRef.current.value;
-   const  city = cityRef.current.value;
-   const  state = stateRef.current.value;
-   const  country = countryRef.current.value 
+   const  area = areaRef.current.value
+   const  jada = jadaRef.current.value;
+   const  street = streetRef.current.value;
+   const  block = blockRef.current.value;
+   const  houseNumber = houseNumberRef.current.value 
    const  phone = phoneRef.current.value
    const  email = emailRef.current.value
 
@@ -42,11 +46,11 @@ const CheckoutComp = () => {
    const userDetails = {
     firstName,
     lastName,
-    address,
-    zipCode,
-    city,
-    state,
-    country,
+    area,
+    jada,
+    street,
+    block,
+    houseNumber,
     phone,
     email,
   };
@@ -76,6 +80,8 @@ const CheckoutComp = () => {
         if (data.email >= 3 || data.phone >= 3) {
           console.log("You are not eligible");
           setOnlyThreeFree(true)
+          setIsLoading(false)
+
         }else{
           const Information = {userDetails,item}
           dispatch(UserCartAction.orderConfirm({ item, userDetails }));
@@ -87,6 +93,8 @@ const CheckoutComp = () => {
             },
             body:JSON.stringify(Information)
           }).then(()=>{
+            setIsLoading(false)
+
             dispatch(UserCartAction.removeAllCart())
         navigate('/orderconfirm')
           })
@@ -94,6 +102,8 @@ const CheckoutComp = () => {
         }
       } catch (error) {
         console.error('Error:', error);
+        setIsLoading(false)
+
       }
     };
     
@@ -103,7 +113,10 @@ const CheckoutComp = () => {
  
   }
 
-
+  if(isLoading)
+  {
+    return <Loading/>
+  }
 
   return (
     <div className='mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8'>
@@ -185,36 +198,31 @@ const CheckoutComp = () => {
             </div>
 
             <div className="sm:col-span-3">
-              <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
-                Country*
+              <label htmlFor="houseNumber" className="block text-sm font-medium leading-6 text-gray-900">
+              House Number*
               </label>
               <div className="mt-2">
-                <select
-                ref={countryRef}
-                  id="country"
-                  name="country"
-                  autoComplete="country-name"
+                <input
+                ref={houseNumberRef}
+                type='text'
+                  id="houseNumber"
+                  name="houseNumber"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                
-                >
-                  <option>United States</option>
-                  <option>Canada</option>
-                  <option>Mexico</option>
-                </select>
+                />
               </div>
             </div>
 
             <div className="col-span-full">
-              <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
-                Address*
+              <label htmlFor="area-address" className="block text-sm font-medium leading-6 text-gray-900">
+                Area*
               </label>
               <div className="mt-2">
                 <input
-                  ref={addressRef}
+                  ref={areaRef}
                   type="text"
-                  name="street-address"
-                  id="street-address"
-                  autoComplete="street-address"
+                  name="area-address"
+                  id="area-address"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   required
                 />
@@ -222,15 +230,15 @@ const CheckoutComp = () => {
             </div>
 
             <div className="sm:col-span-2 sm:col-start-1">
-              <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
-                City*
+              <label htmlFor="street" className="block text-sm font-medium leading-6 text-gray-900">
+                Street*
               </label>
               <div className="mt-2">
                 <input
-                ref={cityRef}
+                ref={streetRef}
                   type="text"
-                  name="city"
-                  id="city"
+                  name="street"
+                  id="street"
                   autoComplete="address-level2"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   required
@@ -239,16 +247,16 @@ const CheckoutComp = () => {
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="region" className="block text-sm font-medium leading-6 text-gray-900">
-                State / Province*
+              <label htmlFor="block" className="block text-sm font-medium leading-6 text-gray-900">
+                Block*
               </label>
               <div className="mt-2">
                 <input
-                ref={stateRef}
+                ref={blockRef}
                   type="text"
-                  name="region"
-                  id="region"
-                  autoComplete="address-level1"
+                  name="block"
+                  id="block"
+                  autoComplete="block-level1"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   required
                 />
@@ -256,16 +264,16 @@ const CheckoutComp = () => {
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
-                ZIP / Postal code*
+              <label htmlFor="jada" className="block text-sm font-medium leading-6 text-gray-900">
+                Jada*
               </label>
               <div className="mt-2">
                 <input
-                ref={zipCodeRef}
+                ref={jadaRef}
                   type="text"
-                  name="postal-code"
-                  id="postal-code"
-                  autoComplete="postal-code"
+                  name="jada"
+                  id="jada"
+                  autoComplete="jada"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   required
                 />

@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MdDelete } from "react-icons/md";
+import Loading from '../Loading';
 
 const AdminCategoryComp = () => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const AdminCategoryComp = () => {
 
   const [items, setItems] = useState([])
   const [uiUpdate, setUiUpdate] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
 
   useEffect(() => {
@@ -18,24 +20,33 @@ const AdminCategoryComp = () => {
         const response = await fetch(process.env.REACT_APP_API_URL + '/getAllCategory'); // Replace with your backend route
         const data = await response.json();
         setItems(data);
+        setIsLoading(false)
       } catch (error) {
+        setIsLoading(false)
         console.error('Error fetching order', error);
       }
     };
 
     fetchData();
-  }, [uiUpdate]);
+  }, [uiUpdate, isLoading]);
 
   const handleDeleteAdmin = (id)=>{
+    
+    setIsLoading(true)
     axios.delete(process.env.REACT_APP_API_URL+'/deleteCategory/'+id)
     .then((response)=>{
+      
+      setIsLoading(false)
       setUiUpdate(!uiUpdate)
     })
   }
 
   const handleCreateUser = () => {
+    setIsLoading(true)
     axios.post(process.env.REACT_APP_API_URL+'/addCategory', { name},{ withCredentials: true })
       .then((response) => {
+        
+        setIsLoading(false)
         setUiUpdate(!uiUpdate)
         if(!response.data.success)
         {
@@ -53,7 +64,9 @@ const AdminCategoryComp = () => {
   };
 
 
-  
+  if(isLoading){
+    return<Loading/>
+  }
 
   return (
     <div className=" p-4">

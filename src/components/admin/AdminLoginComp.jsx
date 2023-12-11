@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import Loading from '../Loading';
 
 
 const AdminLoginComp = () => {
@@ -9,8 +10,10 @@ const AdminLoginComp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = () => {
+    setIsLoading(true)
     axios.post(process.env.REACT_APP_API_URL+'/loginAdmin', { email, password },{ withCredentials: true })
       .then((response) => {
    
@@ -25,14 +28,20 @@ const AdminLoginComp = () => {
         localStorage.setItem("uid",token)
         navigate('/admin')
         }
+        
+    setIsLoading(false)
         // Store token in localStorage or state for further use (e.g., authentication)
       })
       .catch((error) => {
+        
+    setIsLoading(false)
         console.error('Error:', error.response.data.error);
         // Handle login error (display error message, redirect, etc.)
       });
   };
-
+  if(isLoading){
+    return<Loading/>
+  }
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center">
       <div className="bg-white p-8 rounded shadow-md w-96">

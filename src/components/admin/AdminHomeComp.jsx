@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import RecentOrders from './RecentOrders'
+import Loading from '../Loading';
 
 const AdminHomeComp = () => {
   const [productLength, setProductLength] = useState(0);
@@ -8,12 +9,14 @@ const AdminHomeComp = () => {
   const [categoryLength, setCategoryLength] = useState(0);
 
 
+  const [isLoading, setIsLoading] = useState(true);
   
  
     useEffect(()=>{ 
     const fetchData = async () =>{
       const res = await fetch(`${process.env.REACT_APP_API_URL}/product`);
       const data = await res.json();
+      setIsLoading(false)
       setProductLength(data.length)
     }
     const fetOrder = async () =>{
@@ -31,13 +34,16 @@ const AdminHomeComp = () => {
       const data = await res.json();
       setCategoryLength(data.length)
     }
+
   
       fetchData();
       fetOrder();
       fetAdmin();
       fetCategory();
-    },[])
-
+    },[isLoading])
+    if(isLoading){
+      return<Loading/>
+    }
   return (
     <div>
       <div className=" p-4">

@@ -30,9 +30,11 @@ const RecentOrders = () => {
               <th className="border border-gray-200 px-4 py-2">Order ID</th>
               <th className="border border-gray-200 px-4 py-2">Customer</th>
               <th className="border border-gray-200 px-4 py-2">Date</th>
-              <th className="border border-gray-200 px-4 py-2">Address</th>
-              <th className="border border-gray-200 px-4 py-2">City</th>
-              <th className="border border-gray-200 px-4 py-2">ZipCode / Country</th>
+              <th className="border border-gray-200 px-4 py-2">Area</th>
+              <th className="border border-gray-200 px-4 py-2">
+                House No.
+              </th>
+              <th className="border border-gray-200 px-4 py-2">Jada</th>
               <th className="border border-gray-200 px-4 py-2">Phone</th>
               <th className="border border-gray-200 px-4 py-2">Prodcuct Name</th>
               <th className="border border-gray-200 px-4 py-2">Prodcuct Id</th>
@@ -47,9 +49,9 @@ const RecentOrders = () => {
                 <td className="border border-gray-200 px-4 py-2">{order.orderID}</td>
                 <td className="border border-gray-200 px-4 py-2">{order.firstName} {order.lastName}</td>
                 <td className="border border-gray-200 px-4 py-2">{order.date}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.address}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.city}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.zipCode} / {order.country}</td>
+                <td className="border border-gray-200 px-4 py-2">{order.area}</td>
+                <td className="border border-gray-200 px-4 py-2">{order.houseNumber}</td>
+                <td className="border border-gray-200 px-4 py-2">{order.jada} / {order.country}</td>
                 <td className="border border-gray-200 px-4 py-2">{order.phone}</td>
                 <td className="border border-gray-200 px-4 py-2">{order.productName}</td>
                 <td className="border border-gray-200 px-4 py-2">{order.productId}</td>

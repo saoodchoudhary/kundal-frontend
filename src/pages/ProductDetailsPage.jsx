@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductDetailsComp from "../components/ProductDetailsComp";
 import { useParams } from "react-router-dom";
 import HorizontalScrollProduct from "../components/HorizontalScrollProduct";
+import Loading from "../components/Loading";
 
 const ProductDetailsPage = () => {
   const {id} = useParams();
@@ -22,7 +23,7 @@ const ProductDetailsPage = () => {
   },[id])
 
   if(isLoading){
-    return(<div>Loading...</div>)
+    return(<Loading/>)
   }
   return (
     <div onScroll={window.scroll(0,0)}>

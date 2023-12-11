@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
+import Loading from '../Loading';
 const AddProductAdminComp = () => {
     const [categories, setCategories] = useState([])
+    const [isLoading, setIsLoading] = useState(true);
+    
     const [product, setProduct] = useState({
         productName: '',
         description: '',
@@ -31,6 +34,7 @@ const AddProductAdminComp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true)
 if(product.unit === "other")
 {
     product.unit = product.inputUnit;
@@ -71,9 +75,13 @@ if(product.price === "paid")
                 inputUnit: '',
                 tag: '',
                 image: null,})
+            setIsLoading(false)
             }
                 )
-            .catch(err => console.log(err))
+            .catch(err =>{
+                setIsLoading(false)
+                console.log(err)
+            } )
 
 
     };
@@ -86,12 +94,18 @@ if(product.price === "paid")
                     console.log(err)
                 })
             const data = await res.json()
+            setIsLoading(false)
             setCategories(data)
             
 
         }
         fetchDate();
-    }, [])
+    }, [isLoading])
+
+
+    if(isLoading){
+        return<Loading/>
+      }
     return (
         <div className=" mx-auto my-8">
             <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
