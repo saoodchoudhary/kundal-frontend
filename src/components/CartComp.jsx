@@ -73,7 +73,7 @@ const CartComp = () => {
                   className="w-20 h-20 md:h-30 md:w-30 lg:h-40 lg:w-40 object-cover rounded mr-4"
                 /></div>
               <div className="flex flex-col gap-4">
-                <p>{item.productName}</p>
+                <p className=" mr-5">{item.productName}</p>
               <div className=" w-fit bg-gray-100 gap-2 rounded py-1 px-2 text-sm font-semibold">
                   <span className="">{item.weight}</span>
                   <span className="">{item.unit}</span>
@@ -104,13 +104,13 @@ const CartComp = () => {
             </div>
           ))}
            {onlyThreeFree &&   <p className="mt-1 text-sm leading-6 text-red-600">no one can purchase more than 3 products.</p>}
-          <div className="mt-4 flex justify-between">
+          <div className="mt-4 flex flex-col-reverse gap-2 sm:gap-0 sm:flex-row justify-between">
             <Link to="/">
               <button className="border px-4 py-2 rounded">Continue Shopping</button>
             </Link>
-            <div className="flex">
+            <div className="flex justify-between sm:justify-start">
               <p className="font-semibold px-4 py-2 text-lg">Total: ${totalPrice}</p>
-              <button onClick={handlecheckout} className="  bg-blue-500 text-white px-4 py-2 rounded mr-4">
+              <button onClick={handlecheckout} className="  bg-blue-500  text-white px-4 py-2 rounded mr-4">
                 Checkout
               </button>
 

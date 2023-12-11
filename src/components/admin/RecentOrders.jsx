@@ -21,49 +21,66 @@ const RecentOrders = () => {
   }, []);
 
   return (
-    <div className=" p-4">
-      <h2 className="text-2xl font-semibold mb-4">Recent Orders</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="border border-gray-200 px-4 py-2">Order ID</th>
-              <th className="border border-gray-200 px-4 py-2">Customer</th>
-              <th className="border border-gray-200 px-4 py-2">Date</th>
-              <th className="border border-gray-200 px-4 py-2">Area</th>
-              <th className="border border-gray-200 px-4 py-2">
-                House No.
-              </th>
-              <th className="border border-gray-200 px-4 py-2">Jada</th>
-              <th className="border border-gray-200 px-4 py-2">Phone</th>
-              <th className="border border-gray-200 px-4 py-2">Prodcuct Name</th>
-              <th className="border border-gray-200 px-4 py-2">Prodcuct Id</th>
-              <th className="border border-gray-200 px-4 py-2">Product Quantity</th>
-              <th className="border border-gray-200 px-4 py-2">Price</th>
-              <th className="border border-gray-200 px-4 py-2">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map(order => (
-              <tr key={order._id}>
-                <td className="border border-gray-200 px-4 py-2">{order.orderID}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.firstName} {order.lastName}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.date}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.area}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.houseNumber}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.jada} / {order.country}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.phone}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.productName}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.productId}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.quantity}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.price}</td>
-                <td className="border border-gray-200 px-4 py-2">{order.status}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+<div className="p-4">
+  <h2 className="text-2xl font-semibold mb-4">Recent Orders</h2>
+  <div className="overflow-x-auto">
+    {items.map((order) => (
+      <div key={order._id} className="flex flex-col border border-gray-200 mb-4 p-4">
+        <div className="flex mb-2">
+          <span className="font-semibold mr-2">Order ID:</span>
+          <span>{order.orderID}</span>
+        </div>
+        <div className="flex mb-2">
+          <span className="font-semibold mr-2">Customer:</span>
+          <span>{order.firstName} {order.lastName}</span>
+        </div>
+        <div className="flex mb-2">
+          <span className="font-semibold mr-2">Date:</span>
+          <span>{order.date}</span>
+        </div>
+        <div className="flex mb-2">
+          <span className="font-semibold mr-2">Area:</span>
+          <span>{order.area}</span>
+        </div>
+        <div className="flex mb-2">
+          <span className="font-semibold mr-2">House No.:</span>
+          <span>{order.houseNumber}</span>
+        </div>
+        <div className="flex mb-2">
+          <span className="font-semibold mr-2">Block</span>
+          <span>{order.block} </span>
+        </div>
+        <div className="flex mb-2">
+          <span className="font-semibold mr-2">Jada</span>
+          <span>{order.jada} </span>
+        </div>
+        <div className="flex mb-2">
+          <span className="font-semibold mr-2">Phone:</span>
+          <span>{order.phone}</span>
+        </div>
+        <div className="flex mb-2">
+          <span className="font-semibold mr-2">Product Name:</span>
+          <span>{order.productName}</span>
+        </div>
+        
+        <div className="flex mb-2">
+          <span className="font-semibold mr-2">Product Quantity:</span>
+          <span>{order.quantity}</span>
+        </div>
+        <div className="flex mb-2">
+          <span className="font-semibold mr-2">Price:</span>
+          <span>{order.price}</span>
+        </div>
+        <div className="flex">
+          <span className="font-semibold mr-2">Status:</span>
+          <span>{order.status}</span>
+        </div>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
+
+  
   );
 };
 

@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure,  Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import {  FunnelIcon, MinusIcon, PlusIcon,  } from '@heroicons/react/20/solid'
+import {   MinusIcon, PlusIcon,  } from '@heroicons/react/20/solid'
 import { NavLink,  useParams } from 'react-router-dom'
 
 
@@ -173,7 +173,7 @@ const AllProductListPage = () => {
               <span className="sr-only">View grid</span>
               <Squares2X2Icon className="h-5 w-5" aria-hidden="true" />
             </button> */}
-            <div></div>
+            {/* <div></div>
             <button
               type="button"
               className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
@@ -181,7 +181,7 @@ const AllProductListPage = () => {
             >
               <span className="sr-only">Filters</span>
               <FunnelIcon className="h-5 w-5" aria-hidden="true" />
-            </button>
+            </button> */}
           </div>
 
           <section aria-labelledby="products-heading" className="pb-24 pt-6">
