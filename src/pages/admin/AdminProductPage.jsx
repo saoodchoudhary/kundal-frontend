@@ -1,5 +1,6 @@
 // YourComponent.js
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const AdminProductPage = () => {
   const [product, setProduct] = useState([]);
@@ -70,12 +71,12 @@ const AdminProductPage = () => {
               </div>
         </div>
               <div className="mt-4 flex justify-between items-center">
-                <button
-                  onClick={() => handleDeleteClick(product)}
+                <Link
+                  to={`/admin/update/product/${product._id}`}
                   className="bg-green-500 text-white px-3 py-1 rounded hover:bg-red-600 focus:outline-none focus:bg-red-600"
                 >
                   Update
-                </button>
+                </Link>
                 
                 <button
                   onClick={() => handleDeleteClick(product)}

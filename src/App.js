@@ -20,6 +20,7 @@ import AllProductListPage from './pages/AllProductListPage';
 import AdminCategoryPage from './pages/admin/AdminCategoryPage';
 import CategoryFilterComp from './components/CategoryFilterComp';
 import ProtectedRoute from './routes/ProtectedRoute';
+import AdminUpdateProductPage from './pages/admin/AdminUpdateProductPage';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
       <Route path="order" element={<AdminOrderPage />} />
       <Route path="category" element={<AdminCategoryPage />} />
       <Route path="add/product" element={<AdminAddProductPage />} />
+      <Route path="update/product/:id" element={<AdminUpdateProductPage />} />
       <Route path="usermanagment" element={<AdminUserManagmentPage />} />
     </Route>
 
