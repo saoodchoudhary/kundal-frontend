@@ -25,7 +25,7 @@ const CategoryListPage = () => {
     return<Loading/>
   }
   return (
-    <div className="bg-white">
+    <div className="bg-white" onLoad={window.scroll(0,0)}>
       <div className="mx-auto max-w-2xl px-4 py-2 sm:px-6 sm:py-2 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">Category : {id}</h2>
 

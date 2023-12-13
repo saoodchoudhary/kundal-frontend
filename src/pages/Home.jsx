@@ -6,7 +6,8 @@ const Home = () => {
   return (
     <div>
        <Navbar/>
-      <Outlet/>
+       <div className='min-h-[100vh]'>
+      <Outlet/></div>
       <Footer/>
     </div>
   )
