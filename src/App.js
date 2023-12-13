@@ -16,11 +16,11 @@ import CartPage from "./pages/CartPage"
 import CheckoutPage from "./pages/CheckoutPage"
 import ProductDetailsPage from "./pages/ProductDetailsPage"
 import OrderConfirmPage from "./pages/OrderConfirmPage"
-import AllProductListPage from './pages/AllProductListPage';
 import AdminCategoryPage from './pages/admin/AdminCategoryPage';
 import CategoryFilterComp from './components/CategoryFilterComp';
 import ProtectedRoute from './routes/ProtectedRoute';
 import AdminUpdateProductPage from './pages/admin/AdminUpdateProductPage';
+import CategoryPage from './pages/CategoryPage';
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
        <Router>
   <Routes>
     <Route path="/" element={<Home />} >
-      <Route index element={<AllProductListPage />} />
+      <Route index element={<CategoryPage />} />
       <Route path="cart" element={<CartPage />} />  
       <Route path="checkout" element={<CheckoutPage />} />  
       <Route path="product/category/:id" element={<CategoryFilterComp />} />  
