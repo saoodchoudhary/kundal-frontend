@@ -3,6 +3,7 @@ import ProductDetailsComp from "../components/ProductDetailsComp";
 import { useParams } from "react-router-dom";
 import HorizontalScrollProduct from "../components/HorizontalScrollProduct";
 import Loading from "../components/Loading";
+import SuccessToast from "../components/Common/SuccessToast";
 
 const ProductDetailsPage = () => {
   const {id} = useParams();
@@ -27,6 +28,7 @@ const ProductDetailsPage = () => {
   }
   return (
     <div onScroll={window.scroll(0,0)}>
+      <SuccessToast/>
       <ProductDetailsComp  item={item}/>
       <HorizontalScrollProduct category={item.category}/>
     </div>

@@ -21,10 +21,12 @@ import CategoryFilterComp from './components/CategoryFilterComp';
 import ProtectedRoute from './routes/ProtectedRoute';
 import AdminUpdateProductPage from './pages/admin/AdminUpdateProductPage';
 import CategoryPage from './pages/CategoryPage';
+import SidebarContext from './context/SidebarContext';
 
 function App() {
   return (
     <div className="App">
+      <SidebarContext>
        <Provider store={ReduxStore}>
        <Router>
   <Routes>
@@ -53,6 +55,7 @@ function App() {
   </Routes>
 </Router>
     </Provider>
+    </SidebarContext>
     </div>
   );
 }

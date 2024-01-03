@@ -1,0 +1,30 @@
+.sidebar-container{
+    padding: 10px 0;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    background-color: white;
+    display: flex;
+    height: calc(100vh - 40px); 
+    max-height: calc(100vh - 40px);
+    flex-direction: column;
+    width: 250px;
+    z-index: 999;
+    gap: 5px;
+    overflow-y: scroll;
+    
+
+}
+.link{
+ padding: 8px 10px;
+ font-weight: 500;
+ color: rgb(82, 82, 82);
+ transition: all;
+ margin: 1px 0;
+ transition-duration: 100ms;
+}
+
+.link:hover{
+    background-color: rgb(9, 120, 224);
+    color: white;
+}

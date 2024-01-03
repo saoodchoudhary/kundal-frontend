@@ -8,7 +8,8 @@ const UserCartSlice = createSlice({
         information: {
             name:""
         },
-        isAddCart:false
+        isAddCart:false,
+        toastMsg:false
     },
     reducers:{
 
@@ -55,6 +56,7 @@ const UserCartSlice = createSlice({
             } else {
               // If it's a new item, add it to the cart
               state.cartItem.push(newItem);
+              state.toastMsg = true
             }
           },
         removeFromCart: (state, action) => {
@@ -70,7 +72,11 @@ const UserCartSlice = createSlice({
         orderConfirm : (state , action)=>{
        
             state.information = action.payload
+        },
+        offToast: (state, action) =>{
+          state.toastMsg = false
         }
+
     }
 });
 
