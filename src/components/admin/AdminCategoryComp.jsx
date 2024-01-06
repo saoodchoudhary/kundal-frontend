@@ -17,7 +17,7 @@ const AdminCategoryComp = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(process.env.REACT_APP_API_URL + '/getAllCategory'); // Replace with your backend route
+        const response = await fetch(process.env.REACT_APP_API_URL + '/admin/getAllCategory'); // Replace with your backend route
         const data = await response.json();
         setItems(data);
         setIsLoading(false)
@@ -29,6 +29,26 @@ const AdminCategoryComp = () => {
 
     fetchData();
   }, [uiUpdate, isLoading]);
+
+  const handleShowClick = (val)=>{
+    setIsLoading(true)
+    
+    fetch(`${process.env.REACT_APP_API_URL}/category/hideShow`,{
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json" 
+      },
+      body:JSON.stringify(val)
+    })
+    .then((res)=>{
+      console.log("success")
+      setIsLoading(false)
+
+    }).catch((res)=>{
+      setIsLoading(false)
+
+    })
+  }
 
   const handleDeleteAdmin = (id)=>{
     
@@ -104,14 +124,16 @@ const AdminCategoryComp = () => {
           <thead>
             <tr className="bg-gray-100">
               <th className="border border-gray-200 px-4 py-2">Name</th>
+              <th className="border border-gray-200 px-4 py-2">Hide/Show</th>
               <th className="border border-gray-200 px-4 py-2">Delete User</th>
             </tr>
           </thead>
           <tbody>
             {items.map(user => (
               <tr key={user._id}>
-               <td className="border border-gray-200 px-4 py-2">{user.name}</td>
-                <td className="border border-gray-200 align-middle px-4 py-2"><MdDelete className='cursor-pointer' onClick={()=>{handleDeleteAdmin(user._id)}}/></td>
+               <td className="border text-center border-gray-200 px-4 py-2">{user.name}</td>
+                <td className="border border-gray-200 align-middle text-center px-4 py-2 "><button className={`${(user.status === "show")?"bg-blue-500 ":"bg-red-500 "} cursor-pointer py-1 px-6 rounded-lg text-white`} onClick={()=>{handleShowClick(user)}}>{(user.status === "show")?"Hide":"Show"}</button></td>
+                <td className="border text-center border-gray-200 align-middle px-4 py-2"><div className='cursor-pointer inline-flex text-white py-1 px-4 rounded-md bg-red-600  gap-1' onClick={()=>{handleDeleteAdmin(user._id)}}><MdDelete className=' self-center ' />Delete</div></td>
               </tr>
             ))}
           </tbody>
