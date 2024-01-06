@@ -1,9 +1,11 @@
 // YourComponent.js
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Loading from '../../components/Loading';
 
 const AdminProductPage = () => {
   const [product, setProduct] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [productId, setProductId] = useState([]); //product id 
   const [showAlertBox, setShowAlertBox] = useState(false); // alert box show and hide
   const [item, setItem] = useState({}); // alert box show and hide
@@ -12,16 +14,40 @@ const AdminProductPage = () => {
   // Fetch product data
   useEffect(() => {
     // Fetch products from an API endpoint
-    fetch(`${process.env.REACT_APP_API_URL}/product`)
+    fetch(`${process.env.REACT_APP_API_URL}/product/admin`)
       .then(response => response.json())
-      .then(data => setProduct(data))
+      .then(data => {
+      setProduct(data)
+      setIsLoading(false)
+    })
       .catch(error => console.error('Error fetching products:', error));
-  }, []);
+  }, [isLoading]);
 
   const handleDeleteClick = (val) => {
     setProductId(val._id)
     setItem(val)
     setShowAlertBox(true)
+  };
+
+  const handleHideClick = (val) => {
+    setIsLoading(true)
+    
+    fetch(`${process.env.REACT_APP_API_URL}/product/hide_show`,{
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json" 
+      },
+      body:JSON.stringify(val)
+    })
+    .then((res)=>{
+      console.log("success")
+      setIsLoading(false)
+
+    }).catch((res)=>{
+      setIsLoading(false)
+
+    })
+    
   };
 
   const handleConfirmDelete = () => {
@@ -40,14 +66,15 @@ const AdminProductPage = () => {
         }
       })
       .catch(error => console.error('Error deleting product:', error));
-
   };
 
   const handleCancelDelete = () => {
     // Additional logic if needed upon cancellation
     setShowAlertBox(false)
   };
-
+  if(isLoading){
+    return<Loading/>
+  }
   return (
     <div>
       {/* Your product display code */}
@@ -73,14 +100,21 @@ const AdminProductPage = () => {
               <div className="mt-4 flex justify-between items-center">
                 <Link
                   to={`/admin/update/product/${product._id}`}
-                  className="bg-green-500 text-white px-3 py-1 rounded hover:bg-red-600 focus:outline-none focus:bg-red-600"
+                  className="bg-green-500 text-sm text-white px-3 py-1 rounded hover:bg-red-600 focus:outline-none focus:bg-red-600"
                 >
                   Update
                 </Link>
                 
                 <button
+                  onClick={() => handleHideClick(product)}
+                  className={`${(product.status === "show") ? "bg-cyan-500 focus:bg-cyan-600 hover:bg-cyan-600" : "bg-orange-500 focus:bg-orange-600 hover:bg-orange-600"} text-white px-3 py-1 rounded  focus:outline-none  text-sm`}
+                >
+                 {product.status === "show" ? "Hide Product" : "Show Product" }
+                </button>
+
+                <button
                   onClick={() => handleDeleteClick(product)}
-                  className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 focus:outline-none focus:bg-red-600"
+                  className="bg-red-500 text-sm text-white px-3 py-1 rounded hover:bg-red-600 focus:outline-none focus:bg-red-600"
                 >
                   Delete
                 </button>

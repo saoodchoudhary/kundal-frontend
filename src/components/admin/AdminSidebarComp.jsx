@@ -40,7 +40,7 @@ const AdminSidebarComp = () => {
     // Function to update window width on resize
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         setOpenh(true); // Show sidebar if window width is 800px or more
       } else {
         setOpenh(false); // Hide sidebar if window width is less than 800px
@@ -60,7 +60,7 @@ const AdminSidebarComp = () => {
   return (
     <div>
     {/* Hamburger menu button */}
-    {windowWidth < 800 && (
+    {windowWidth < 1024 && (
       <div className="flex items-center">
   <button  onClick={toggleSidebar} className="text-gray-600 focus:outline-none lg:hidden">
     <svg
@@ -83,7 +83,7 @@ const AdminSidebarComp = () => {
     {/* Sidebar */}
     <Card
       className={`min-h-[calc(100vh)] w-full min-w-[280px] max-w-[280px] p-4 shadow-xl overflow-y-auto fixed top-22 left-0 shadow-blue-gray-900/5 ${
-        windowWidth < 800 && !openh ? "hidden" : "" // Hide sidebar when width is less than 800px and it's closed
+        windowWidth < 1024 && !openh ? "hidden" : "" // Hide sidebar when width is less than 1000px and it's closed
       }`}
     >
       <div className="mb-2 flex items-center gap-4 p-4">

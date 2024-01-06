@@ -6,7 +6,7 @@ const AdminHome = () => {
   return (
     <div>
       <AdminSidebarComp/>
-      <div className='md:ml-[280px] ml-0'>    
+      <div className='lg:ml-[280px] ml-0'>    
       <Outlet/>
       </div>
     </div>
