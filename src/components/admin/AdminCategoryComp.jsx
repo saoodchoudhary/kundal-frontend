@@ -8,6 +8,7 @@ import Loading from '../Loading';
 const AdminCategoryComp = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
+  const [img, setImg] = useState();
 
   const [items, setItems] = useState([])
   const [uiUpdate, setUiUpdate] = useState(true)
@@ -63,7 +64,11 @@ const AdminCategoryComp = () => {
 
   const handleCreateUser = () => {
     setIsLoading(true)
-    axios.post(process.env.REACT_APP_API_URL+'/addCategory', { name},{ withCredentials: true })
+    console.log(name, img)
+    const formData = new FormData();
+    formData.append("name",name);
+    formData.append("image", img);
+    axios.post(process.env.REACT_APP_API_URL+'/addCategory', formData)
       .then((response) => {
         
         setIsLoading(false)
@@ -95,6 +100,16 @@ const AdminCategoryComp = () => {
       {}
       <div className='xl:max-w-[30%] mx-12 my-12'>
       <form>
+          <div className="mb-4 ">
+            <label htmlFor="image" className="block text-gray-700 text-sm font-bold mb-2">Category Image</label>
+            <input
+              type="file"
+              id="image"
+              className="border border-gray-300 rounded-md px-3 py-2 w-full focus:outline-none focus:border-blue-500"
+              onChange={(e) => setImg(e.target.files[0])}
+              required
+            />
+          </div>
           <div className="mb-4 ">
             <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">Name</label>
             <input
