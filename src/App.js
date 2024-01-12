@@ -22,6 +22,11 @@ import ProtectedRoute from './routes/ProtectedRoute';
 import AdminUpdateProductPage from './pages/admin/AdminUpdateProductPage';
 import CategoryPage from './pages/CategoryPage';
 import SidebarContext from './context/SidebarContext';
+import SurveyPage from './pages/SurveyPage';
+import SurveyFormPage from './pages/SurveyFormPage';
+import SurveySuccess from './pages/SurveySuccess';
+import AdminSurveyPage from './pages/admin/AdminSurveyPage';
+import AdminDetailsSurveyPage from './pages/admin/AdminDetailsSurveyPage';
 
 function App() {
   return (
@@ -33,6 +38,9 @@ function App() {
     <Route path="/" element={<Home />} >
       <Route index element={<CategoryPage />} />
       <Route path="cart" element={<CartPage />} />  
+      <Route path="survey" element={<SurveyPage />} />  
+      <Route path="survey/success" element={<SurveySuccess />} />  
+      <Route path="survey/:id" element={<SurveyFormPage />} />  
       <Route path="checkout" element={<CheckoutPage />} />  
       <Route path="product/category/:id" element={<CategoryFilterComp />} />  
       <Route path="product/:id" element={<ProductDetailsPage />} />
@@ -46,6 +54,8 @@ function App() {
       <Route path="product" element={<AdminProductPage />} />
       <Route path="order" element={<AdminOrderPage />} />
       <Route path="category" element={<AdminCategoryPage />} />
+      <Route path="survey" element={<AdminSurveyPage />} />
+      <Route path="survey/details/:id" element={<AdminDetailsSurveyPage />} />
       <Route path="add/product" element={<AdminAddProductPage />} />
       <Route path="update/product/:id" element={<AdminUpdateProductPage />} />
       <Route path="usermanagment" element={<AdminUserManagmentPage />} />

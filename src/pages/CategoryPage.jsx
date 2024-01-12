@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Loading from '../components/Loading'
 import { Link } from 'react-router-dom'
+import SurveyBanner from '../components/SurveyBanner'
 
 
 
@@ -30,6 +31,9 @@ const CategoryPage = () => {
   }
   return (
     <div className="bg-white max-w-[1200px] mr-auto ml-auto my-8">
+      <div>
+      <SurveyBanner/>
+      </div>
       <div>
       <div className="flex justify-center">
   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-5 md:gap-9">

@@ -26,7 +26,7 @@ import {
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { MdCategory } from "react-icons/md";
+import { MdCategory, MdNote } from "react-icons/md";
  
 const AdminSidebarComp = () => {
     const [open, setOpen] = useState(0);
@@ -169,6 +169,17 @@ const AdminSidebarComp = () => {
           Category
         </ListItem>
         </Link>
+
+        <Link to="/admin/survey">
+        <ListItem>
+          <ListItemPrefix>
+            <MdNote className="h-5 w-5" />
+          </ListItemPrefix>
+          Survey
+        </ListItem>
+        </Link>
+
+
         <Link to="/admin/usermanagment">
         <ListItem>
           <ListItemPrefix>
