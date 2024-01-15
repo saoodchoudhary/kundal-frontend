@@ -1,6 +1,6 @@
 // SurveyComponent.jsx
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
