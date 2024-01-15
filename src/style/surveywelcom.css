@@ -1,0 +1,89 @@
+.my-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* page */
+.progress-relative{
+    position: relative;
+}
+.img1{
+    width: 340px;
+    height: auto;
+    position: absolute;
+    rotate: 44deg;
+    left: -120px;
+    top: 90px;
+    opacity: 0.3;
+    z-index: -999;
+}
+.img2{
+    width: 340px;
+    height: auto;
+    position: absolute;
+    rotate: 44deg;
+    left: -120px;
+    bottom: 90px;
+    opacity: 0.3;
+    z-index: -999;
+}
+
+.img3{
+    width: 300px;
+    height: auto;
+    position: absolute;
+    rotate: 324deg;
+    right: -120px;
+    top: 90px;
+    opacity: 0.3;
+    z-index: -999;
+}
+.img4{
+    width: 304px;
+    height: auto;
+    position: absolute;
+    opacity: 0.3;    
+    rotate: 324deg;
+    right: -120px;
+    bottom: 90px;
+    z-index: -999;
+}
+
+/* child */
+
+.child-container{
+    margin-top: 90px;
+    text-align: center;
+    display: flex;
+    gap: 10px;
+}
+.child-container img{
+    text-align: center;
+    align-self: center;
+}
+.child-container h1 {
+    font-weight: 700;
+    font-size: 2rem; /* Adjust the font size as needed */
+    color: #1a202c; /* Adjust the text color as needed */
+  }
+  
+
+  .start-btn {
+    background-color: #3490dc;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  .start-btn:hover {
+    background-color: #2779bd; /* Adjust the hover color as needed */
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .img {
+        display: none;
+    }
+  }

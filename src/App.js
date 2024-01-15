@@ -38,14 +38,15 @@ function App() {
     <Route path="/" element={<Home />} >
       <Route index element={<CategoryPage />} />
       <Route path="cart" element={<CartPage />} />  
-      <Route path="survey" element={<SurveyPage />} />  
-      <Route path="survey/success" element={<SurveySuccess />} />  
       <Route path="survey/:id" element={<SurveyFormPage />} />  
       <Route path="checkout" element={<CheckoutPage />} />  
       <Route path="product/category/:id" element={<CategoryFilterComp />} />  
       <Route path="product/:id" element={<ProductDetailsPage />} />
       <Route path="orderconfirm" element={<OrderConfirmPage />} />  
     </Route>
+
+    <Route path='/survey' element={<SurveyPage/>}/>
+      <Route path="/survey/success" element={<SurveySuccess />} />  
 
     <Route path="admin/login" element={<AdminLoginPage />} />
 

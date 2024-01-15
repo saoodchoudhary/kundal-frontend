@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const SurveySuccess = () => {
   // This state variable will help manage whether to display the success message or not
+
+  const data = useSelector(state => state.survey)
+  console.log("survey",data)
   const [submitted, setSubmitted] = useState(true);
 
   return (
