@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {  } from 'react'
 import Welcome from '../components/survey/Welcome'
 import { useSelector } from 'react-redux'
 import NameStep from '../components/survey/NameStep'
@@ -44,11 +44,11 @@ const SurveyPage = () => {
         return 0; // Default value if none of the conditions match
     };
     
-   useEffect(()=>{
-    for (let index = 0; index < navCount; index++) {
-        navArray.push(index+1)
-    }
-   },[navCount, navArray[0]]);
+//    useEffect(()=>{
+//     for (let index = 0; index < navCount; index++) {
+//         navArray.push(index+1)
+//     }
+//    },[navCount]);
   return (
     <div>
     <div className='img-container'>
