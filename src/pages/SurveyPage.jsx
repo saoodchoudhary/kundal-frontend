@@ -48,7 +48,7 @@ const SurveyPage = () => {
     for (let index = 0; index < navCount; index++) {
         navArray.push(index+1)
     }
-   },[navCount]);
+   },[navCount, navArray[0]]);
   return (
     <div>
     <div className='img-container'>
