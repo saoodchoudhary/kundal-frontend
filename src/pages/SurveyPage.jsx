@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Welcome from '../components/survey/Welcome'
 import { useSelector } from 'react-redux'
 import NameStep from '../components/survey/NameStep'
