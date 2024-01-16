@@ -3,19 +3,20 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux'
 import ProductNameSurvey from './ProductNameSurvey';
 import OpinionSurvey from './OpinionSurvey';
-import ProsAndConsSurvey_AB from './ProsAndConsSurvey_AB';
-import PreviousProdcutSurvey_C from './PreviousProdcutSurvey_C';
-import PurchaseInformation_D from './PurchaseInformation_D';
-import CostInformation_E from './CostInformation_E';
-import ComparisonSurvey_F from './ComparisonSurvey_F';
-import IngredientAwareness_G from './IngredientAwareness_G';
-import WillingnesstoPay_H from './WillingnesstoPay_H';
-import HowManyTimes_I from './HowManyTimes_I';
-import UsageInformation_J from './UsageInformation_J';
+import ProsAndConsSurveyAB from './ProsAndConsSurveyAB';
+import PreviousProdcutSurveyC from './PreviousProdcutSurveyC';
+import PurchaseInformationD from './PurchaseInformationD';
+import CostInformationE from './CostInformationE';
+import ComparisonSurveyF from './ComparisonSurveyF';
+import IngredientAwarenessG from './IngredientAwarenessG';
+import WillingnesstoPayH from './WillingnesstoPayH';
+import HowManyTimesI from './HowManyTimesI';
+import UsageInformationJ from './UsageInformationJ';
+
 
 
 const Q1Home = () => {
-  const totalQuestion = useSelector(state => state.survey.formData.maxProduct);
+  // const totalQuestion = useSelector(state => state.survey.formData.maxProduct);
   const {qStep1, qStep2, qStep3} = useSelector(state => state.survey);
   const currentProduct = useSelector(state => state.survey.currentProduct);
   const [qStep, setQStep] =useState(1)
@@ -45,31 +46,31 @@ const Q1Home = () => {
         qStep === 2 && <OpinionSurvey/>        
       }
       {
-        qStep === 3 && <ProsAndConsSurvey_AB/>        
+        qStep === 3 && <ProsAndConsSurveyAB/>        
       }
       {
-        qStep === 4 && <PreviousProdcutSurvey_C/>        
+        qStep === 4 && <PreviousProdcutSurveyC/>        
       }
       {
-        qStep === 5 && <PurchaseInformation_D/>        
+        qStep === 5 && <PurchaseInformationD/>        
       }
       {
-        qStep === 6 && <CostInformation_E/>        
+        qStep === 6 && <CostInformationE/>        
       }
       {
-        qStep === 7 && <ComparisonSurvey_F/>        
+        qStep === 7 && <ComparisonSurveyF/>        
       }
       {
-        qStep === 8 && <IngredientAwareness_G/>        
+        qStep === 8 && <IngredientAwarenessG/>        
       }
       {
-        qStep === 9 && <WillingnesstoPay_H/>        
+        qStep === 9 && <WillingnesstoPayH/>        
       }
       {
-        qStep === 10 && <HowManyTimes_I/>        
+        qStep === 10 && <HowManyTimesI/>        
       }
       {
-        (qStep === 11 && currentProduct === 1) && <UsageInformation_J/>        
+        (qStep === 11 && currentProduct === 1) && <UsageInformationJ/>        
       }
 
     </div>

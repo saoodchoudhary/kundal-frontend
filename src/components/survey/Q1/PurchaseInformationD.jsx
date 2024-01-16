@@ -1,9 +1,9 @@
 // PurchaseLocationSurvey.js
-import React, { useState } from 'react';
+import React, {  } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
-const PurchaseInformation_D = () => {
+const PurchaseInformationD = () => {
   const dispatch = useDispatch();
 
   
@@ -46,4 +46,4 @@ const PurchaseInformation_D = () => {
 };
 
 
-export default PurchaseInformation_D
+export default PurchaseInformationD

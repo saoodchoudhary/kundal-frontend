@@ -1,42 +1,48 @@
-// SurveyForm.js
 
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
-const WillingnesstoPay_H = () => {
-  const [response, setResponse] = useState('');
-  const dispatch = useDispatch();
+const HowManyTimesI = () => {
+  const [usageCount, setUsageCount] = useState();
+ const dispatch = useDispatch()
 
-  
-  const { currentProduct} = useSelector(state => state.survey);
+ 
+ const totalQuestion = useSelector(state => state.survey.formData.maxProduct);
+ const { currentProduct} = useSelector(state => state.survey);
 
   const handleInputChange = (e) => {
-    setResponse(e.target.value);
+    setUsageCount(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if(currentProduct ===1){
-      dispatch(SurveyAction.submitQuestion({key:"willingnesstoPay1",value:response}))
-      dispatch(SurveyAction.questionCount1(10));
+      dispatch(SurveyAction.submitQuestion({key:"howManyTimes1", value:usageCount}))
+      dispatch(SurveyAction.questionCount1(11));
     }
     else if(currentProduct === 2){
-      dispatch(SurveyAction.submitQuestion({key:"willingnesstoPay2",value:response}))
-      dispatch(SurveyAction.questionCount2(10));
+      if(totalQuestion === 2)
+      {
+        dispatch(SurveyAction.stepCount(7))
+      }else{
+      dispatch(SurveyAction.submitQuestion({key:"howManyTimes2", value:usageCount}))
+      dispatch(SurveyAction.currentProductCount(3))
+      }
     }
     else if(currentProduct === 3) {
-      dispatch(SurveyAction.submitQuestion({key:"willingnesstoPay3",value:response}))
-      dispatch(SurveyAction.questionCount3(10));
+      dispatch(SurveyAction.submitQuestion({key:"howManyTimes3", value:usageCount}))
+      dispatch(SurveyAction.stepCount(7))
     }
+    
   };
 
   return (
 
     <div className="myContainer">
     <div className='childContainer-1'>
-        <h1 className="question">How much would you be willing to pay for Kundal?</h1>
+        <h1 className="question">How many times have you used Kundal products?</h1>
         <div className='inputContainer'>
             <input
                 id='name'
@@ -58,6 +64,4 @@ const WillingnesstoPay_H = () => {
   );
 };
 
-
-
-export default WillingnesstoPay_H
+export default HowManyTimesI

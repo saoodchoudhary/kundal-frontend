@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
-const ProsAndConsSurvey_AB = () => {
+const ProsAndConsSurveyAB = () => {
   const [responses, setResponses] = useState({
     positive: '',
     negative: ''
@@ -83,4 +83,4 @@ const ProsAndConsSurvey_AB = () => {
 };
 
 
-export default ProsAndConsSurvey_AB
+export default ProsAndConsSurveyAB

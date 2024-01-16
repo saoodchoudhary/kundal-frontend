@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
-const PreviousProdcutSurvey_C = () => {
+const PreviousProdcutSurveyC = () => {
   const [previousProduct, setPreviousProduct] = useState('');
   const dispatch = useDispatch();
 
@@ -58,4 +58,4 @@ const PreviousProdcutSurvey_C = () => {
   );
 };
 
-export default PreviousProdcutSurvey_C
+export default PreviousProdcutSurveyC

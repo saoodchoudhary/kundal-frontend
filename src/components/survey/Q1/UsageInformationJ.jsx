@@ -2,7 +2,7 @@ import React, {  } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
-const UsageInformation_J = () => {
+const UsageInformationJ = () => {
    const dispatch = useDispatch();
    const totalQuestion = useSelector(state => state.survey.formData.maxProduct);
   const { currentProduct} = useSelector(state => state.survey);
@@ -51,4 +51,4 @@ const UsageInformation_J = () => {
 };
 
 
-export default UsageInformation_J
+export default UsageInformationJ

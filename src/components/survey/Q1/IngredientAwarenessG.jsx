@@ -4,7 +4,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
-const IngredientAwareness_G = () => {
+const IngredientAwarenessG = () => {
  const dispatch = useDispatch();
 
  
@@ -48,4 +48,4 @@ const IngredientAwareness_G = () => {
   );
 };
 
-export default IngredientAwareness_G
+export default IngredientAwarenessG

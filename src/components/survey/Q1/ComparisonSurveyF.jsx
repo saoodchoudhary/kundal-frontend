@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
-const ComparisonSurvey_F = () => {
+const ComparisonSurveyF = () => {
 
   const dispatch = useDispatch();
   
@@ -44,4 +44,4 @@ const ComparisonSurvey_F = () => {
   );
 };
 
-export default ComparisonSurvey_F
+export default ComparisonSurveyF
