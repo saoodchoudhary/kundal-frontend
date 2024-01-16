@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
-const ProductNameSurvey = ({ productNumber = 1 }) => {
+const ProductNameSurvey = () => {
   const [productName, setProductName]= useState("")
   const { currentProduct , qStep3} = useSelector(state => state.survey);
     const dispatch = useDispatch();
