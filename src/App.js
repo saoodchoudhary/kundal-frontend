@@ -23,7 +23,6 @@ import AdminUpdateProductPage from './pages/admin/AdminUpdateProductPage';
 import CategoryPage from './pages/CategoryPage';
 import SidebarContext from './context/SidebarContext';
 import SurveyPage from './pages/SurveyPage';
-import SurveyFormPage from './pages/SurveyFormPage';
 import SurveySuccess from './pages/SurveySuccess';
 import AdminSurveyPage from './pages/admin/AdminSurveyPage';
 import AdminDetailsSurveyPage from './pages/admin/AdminDetailsSurveyPage';
@@ -37,8 +36,7 @@ function App() {
   <Routes>
     <Route path="/" element={<Home />} >
       <Route index element={<CategoryPage />} />
-      <Route path="cart" element={<CartPage />} />  
-      <Route path="survey/:id" element={<SurveyFormPage />} />  
+      <Route path="cart" element={<CartPage />} />   
       <Route path="checkout" element={<CheckoutPage />} />  
       <Route path="product/category/:id" element={<CategoryFilterComp />} />  
       <Route path="product/:id" element={<ProductDetailsPage />} />
