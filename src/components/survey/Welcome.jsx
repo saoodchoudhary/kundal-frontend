@@ -25,7 +25,7 @@ const Welcome = () => {
       </button>
       </div>
       <div>
-            {/* <img src={process.env.PUBLIC_URL + '/survey/shampoo.png'} alt="Shampoo" className="img" /> */}
+            <img src='./survey/shampoo.png' alt="Shampoo" className="img" />
 
       </div>
     </div>

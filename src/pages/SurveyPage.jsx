@@ -51,12 +51,12 @@ const SurveyPage = () => {
 //    },[navCount]);
   return (
     <div>
-    {/* <div className='img-container'>
-            <img src={process.env.PUBLIC_URL + '/survey/bodyw.png'} alt="Shampoo" className="img1" />
-            <img src={process.env.PUBLIC_URL + '/survey/shampoo.png'} alt="Shampoo" className="img2" />
-            <img src={process.env.PUBLIC_URL + '/survey/bodyl.png'} alt="Shampoo" className="img3" />
-            <img src={process.env.PUBLIC_URL + '/survey/treatment.png'} alt="Shampoo" className="img4" />
-      </div> */}
+    <div className='img-container'>
+            <img src='./survey/bodyw.png' alt="Shampoo" className="img1" />
+            <img src= './survey/shampoo.png' alt="Shampoo" className="img2" />
+            <img src= './survey/bodyl.png' alt="Shampoo" className="img3" />
+            <img src= './survey/treatment.png' alt="Shampoo" className="img4" />
+      </div>
     <div className='p-5'>
         <div className='progress-relative'>
         <div className='flex '>
