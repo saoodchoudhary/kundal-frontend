@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, {  } from 'react'
 import Welcome from '../components/survey/Welcome'
 import { useSelector } from 'react-redux'
 import NameStep from '../components/survey/NameStep'
@@ -13,42 +13,43 @@ import ExtraFeedbackSurvey from '../components/survey/ExtraFeedbackSurvey'
 
 import "../style/surveywelcom.css"
 const SurveyPage = () => {
-    const { step, navCount, currentProduct, qStep1, qStep2, qStep3, q2 } = useSelector(state => state.survey);
+    // const { step, navCount, currentProduct, qStep1, qStep2, qStep3, q2 } = useSelector(state => state.survey);
+    const { step } = useSelector(state => state.survey);
 
-    console.log("cou" + typeof (currentProduct))
-    const navArray = [];
+    // console.log("cou" + typeof (currentProduct))
+    // const navArray = [];
 
-    for (let index = 0; index < navCount; index++) {
-        navArray.push(index + 1)
-    }
+    // for (let index = 0; index < navCount; index++) {
+    //     navArray.push(index + 1)
+    // }
 
-    const navProgress = (val, key) => {
-        console.log(val, key)
-        let nStep = step;
-        if (step > 5) {
-            nStep = 6
-        }
+    // const navProgress = (val, key) => {
+    //     console.log(val, key)
+    //     let nStep = step;
+    //     if (step > 5) {
+    //         nStep = 6
+    //     }
 
-        if (val === 1) {
-            return ((nStep - 1) / 5) * 100 / navCount;
-        } else if (val === 2) {
-            return ((qStep1 - 1) / 11) * 100 / navCount;
-        } else if ((val === 3)) {
-            return ((qStep2 - 1) / 10) * 100 / navCount;
-        } else if ((val === 4)) {
-            return ((qStep3 - 1) / 10) * 100 / navCount;
-        } else if ((val === 5)) {
-            return ((q2 - 1) / 3) * 100 / navCount
-        }
+    //     if (val === 1) {
+    //         return ((nStep - 1) / 5) * 100 / navCount;
+    //     } else if (val === 2) {
+    //         return ((qStep1 - 1) / 11) * 100 / navCount;
+    //     } else if ((val === 3)) {
+    //         return ((qStep2 - 1) / 10) * 100 / navCount;
+    //     } else if ((val === 4)) {
+    //         return ((qStep3 - 1) / 10) * 100 / navCount;
+    //     } else if ((val === 5)) {
+    //         return ((q2 - 1) / 3) * 100 / navCount
+    //     }
 
-        return 0; // Default value if none of the conditions match
-    };
+    //     return 0; // Default value if none of the conditions match
+    // };
 
-    useEffect(() => {
-        for (let index = 0; index < navCount; index++) {
-            navArray.push(index + 1)
-        }
-    }, [navCount]);
+    // useEffect(() => {
+    //     for (let index = 0; index < navCount; index++) {
+    //         navArray.push(index + 1)
+    //     }
+    // }, [navCount]);
     return (
         <div>
             <div className='img-container'>
@@ -58,7 +59,7 @@ const SurveyPage = () => {
                 <img src='./survey/treatment.png' alt="Shampoo" className="img4" />
             </div>
             <div className='p-5'>
-                <div className='relative'>
+                {/* <div className='relative'>
                     <div className='flex'>
                         {navArray.map((val, _) => {
                             return (
@@ -74,7 +75,7 @@ const SurveyPage = () => {
                             })}
                         </div>
                     </div>
-                </div>
+                </div> */}
                 {
                     step === 1 && <Welcome />
                 }

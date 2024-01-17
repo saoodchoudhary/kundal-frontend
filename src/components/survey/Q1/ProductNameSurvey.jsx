@@ -5,7 +5,7 @@ import { SurveyAction } from '../../../store/surveySlice';
 const ProductNameSurvey = () => {
   const [productName, setProductName]= useState("")
   const [myError, setMyError]= useState(false)
-  const { currentProduct , qStep3} = useSelector(state => state.survey);
+  const { currentProduct } = useSelector(state => state.survey);
     const dispatch = useDispatch();
     const handleChange =(e)=>{
       setProductName(e.target.value)
