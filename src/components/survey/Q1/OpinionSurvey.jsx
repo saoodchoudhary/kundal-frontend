@@ -44,7 +44,7 @@ const OpinionSurvey = () => {
                   name="opinion"
                   onChange={handleChange}
                   rows={8}
-                  className="w-full px-4 py-2 rounded border focus:outline-none         focus:border-blue-500"
+                  className=" border rounded w-full py-2 max-w-md px-3 focus:outline-none         focus:border-blue-500"
                   placeholder="e.g., smell, texture, size, packaging, ingredients, hydrating, skin reaction, etc."
         />
                 </div>

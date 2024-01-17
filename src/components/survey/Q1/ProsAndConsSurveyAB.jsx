@@ -46,7 +46,7 @@ const ProsAndConsSurveyAB = () => {
 
     <div className="myContainer">
       <form onSubmit={handleSubmit}>
-        <div className="mb-4">
+        <div className="mb-4  max-w-md mx-auto">
           <label className="block text-sm font-medium text-gray-600">Pros:</label>
           <textarea
           rows={8}
@@ -58,8 +58,8 @@ const ProsAndConsSurveyAB = () => {
             required
           />
         </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Cons:</label>
+        <div className="mb-4 max-w-md mx-auto">
+          <label className=" w-full py-2 max-w-md px-3  text-gray-600">Cons:</label>
           <textarea
           rows={8}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
