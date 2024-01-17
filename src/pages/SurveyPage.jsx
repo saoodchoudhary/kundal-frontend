@@ -1,4 +1,4 @@
-import React, {  } from 'react'
+import React, { useEffect } from 'react'
 import Welcome from '../components/survey/Welcome'
 import { useSelector } from 'react-redux'
 import NameStep from '../components/survey/NameStep'
@@ -13,101 +13,101 @@ import ExtraFeedbackSurvey from '../components/survey/ExtraFeedbackSurvey'
 
 import "../style/surveywelcom.css"
 const SurveyPage = () => {
-    const { step, navCount, currentProduct, qStep1, qStep2, qStep3 , q2} = useSelector(state => state.survey);
+    const { step, navCount, currentProduct, qStep1, qStep2, qStep3, q2 } = useSelector(state => state.survey);
 
-   console.log("cou"+typeof(currentProduct))
-   const navArray = [];
-   
+    console.log("cou" + typeof (currentProduct))
+    const navArray = [];
+
     for (let index = 0; index < navCount; index++) {
-        navArray.push(index+1)
+        navArray.push(index + 1)
     }
 
     const navProgress = (val, key) => {
         console.log(val, key)
         let nStep = step;
-        if(step > 5){
-            nStep  =  6
+        if (step > 5) {
+            nStep = 6
         }
-        
+
         if (val === 1) {
-            return ((nStep - 1) / 5) * 100 / navCount ;
+            return ((nStep - 1) / 5) * 100 / navCount;
         } else if (val === 2) {
             return ((qStep1 - 1) / 11) * 100 / navCount;
-        } else if ((val === 3) ) {
+        } else if ((val === 3)) {
             return ((qStep2 - 1) / 10) * 100 / navCount;
-        } else if ( (val === 4)) {
+        } else if ((val === 4)) {
             return ((qStep3 - 1) / 10) * 100 / navCount;
-        }else if((val === 5)){
-            return ((q2 -1)/3) * 100 / navCount
+        } else if ((val === 5)) {
+            return ((q2 - 1) / 3) * 100 / navCount
         }
-    
+
         return 0; // Default value if none of the conditions match
     };
-    
-//    useEffect(()=>{
-//     for (let index = 0; index < navCount; index++) {
-//         navArray.push(index+1)
-//     }
-//    },[navCount]);
-  return (
-    <div>
-    <div className='img-container'>
-            <img src='./survey/bodyw.png' alt="Shampoo" className="img1" />
-            <img src= './survey/shampoo.png' alt="Shampoo" className="img2" />
-            <img src= './survey/bodyl.png' alt="Shampoo" className="img3" />
-            <img src= './survey/treatment.png' alt="Shampoo" className="img4" />
-      </div>
-    <div className='p-5'>
-        <div className='progress-relative'>
-        <div className='flex '>
-        { navArray.map((val,_)=>{
-            return(
-            <div key={_} className={`bg-gray-200 rounded-full h-2 w-[100%]`}></div>
-            )
-        }) }
-            <div className='flex absolute top-0 left-0  w-[100%]'>
-        { navArray.map((val,_)=>{
-            console.log(val)
-            return(
-            <div key={_} className={`bg-blue-500 rounded-full h-2`} style={{width:`${navProgress(val, _)}%`}} ></div>
-            )
-        }) }
+
+    useEffect(() => {
+        for (let index = 0; index < navCount; index++) {
+            navArray.push(index + 1)
+        }
+    }, [navCount]);
+    return (
+        <div>
+            <div className='img-container'>
+                <img src='./survey/bodyw.png' alt="Shampoo" className="img1" />
+                <img src='./survey/shampoo.png' alt="Shampoo" className="img2" />
+                <img src='./survey/bodyl.png' alt="Shampoo" className="img3" />
+                <img src='./survey/treatment.png' alt="Shampoo" className="img4" />
             </div>
+            <div className='p-5'>
+                <div className='relative'>
+                    <div className='flex'>
+                        {navArray.map((val, _) => {
+                            return (
+                                <div key={_} className={`bg-gray-200 rounded-full h-2 w-[100%]`}></div>
+                            )
+                        })}
+                        <div className='flex absolute top-0 left-0 w-[100%]'>
+                            {navArray.map((val, _) => {
+                                console.log(val)
+                                return (
+                                    <div key={_} className={`bg-blue-500 rounded-full h-2`} style={{ width: `${navProgress(val, _)}%` }} ></div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </div>
+                {
+                    step === 1 && <Welcome />
+                }
+                {
+                    step === 2 && <NameStep />
+                }
+                {
+                    step === 3 && <AgeSurvey />
+                }
+                {
+                    step === 4 && <HairKind />
+                }
+                {
+                    step === 5 && <MaximumChooseProduct />
+                }
+                {
+                    step === 6 && <Q1Home />
+                }
+                {
+                    step === 7 && <Q2Home />
+                }
+                {
+                    step === 8 && <Allergies />
+                }
+                {
+                    step === 9 && <ExtraFeedbackSurvey />
+                }
+                {
+                    step === 10 && <SurveySuccess />
+                }
             </div>
-            </div>
-        {
-            step === 1 &&  <Welcome/>
-        }
-        {
-            step === 2 &&  <NameStep/>
-        }
-        { 
-            step === 3 && <AgeSurvey/>
-        }
-        { 
-            step === 4 && <HairKind/>
-        }
-        { 
-            step === 5 && <MaximumChooseProduct/>
-        }
-        { 
-            step === 6 && <Q1Home/>
-        }
-        { 
-            step === 7 && <Q2Home/>
-        }
-        { 
-            step === 8 && <Allergies/>
-        }   
-        { 
-            step === 9 && <ExtraFeedbackSurvey/>
-        }  
-        { 
-            step === 10 && <SurveySuccess/>
-        }   
-    </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default SurveyPage

@@ -46,28 +46,27 @@ const ProsAndConsSurveyAB = () => {
 
     <div className="myContainer">
       <form onSubmit={handleSubmit}>
-      <h1>Product Survey</h1>
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Pros</label>
+          <label className="block text-sm font-medium text-gray-600">Pros:</label>
           <textarea
           rows={8}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             name="positive"
             value={responses.positive}
             onChange={handleInputChange}
-            placeholder="List the positive aspects"
+            placeholder="List the positive aspects..."
             required
           />
         </div>
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Cons</label>
+          <label className="block text-sm font-medium text-gray-600">Cons:</label>
           <textarea
           rows={8}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             name="negative"
             value={responses.negative}
             onChange={handleInputChange}
-            placeholder="List the negative aspects"
+            placeholder="List the negative aspects..."
             required
           />
         </div>

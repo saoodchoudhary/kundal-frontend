@@ -30,12 +30,14 @@ const ComparisonSurveyF = () => {
     <div className="myContainer">
       <div className='childContainer-1'>
         <h1 className="question">Is Kundal a better replacement for your current product?</h1>
-        <div className='btnContainer'>
-          <div>
-            <button onClick={() => handleNext("Yes")}>Yes</button>
+        <div className='btnImgContainer'>
+          <div className='imgBtn'  onClick={() => handleNext("Yes")} >
+            <img src='./survey/correct.png' alt='Yes'/>
+            <button>Yes</button>
           </div>
-          <div>
-            <button onClick={() => handleNext("No")}>No</button>
+          <div className='imgBtn' onClick={() => handleNext("No")}>
+            <img src='./survey/wrong.png' alt='No'/>
+            <button>No</button>
           </div>
         </div>
       </div>

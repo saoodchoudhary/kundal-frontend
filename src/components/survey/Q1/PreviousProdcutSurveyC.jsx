@@ -33,6 +33,7 @@ const PreviousProdcutSurveyC = () => {
 
   return (
     
+      <form onSubmit={handleSubmit}>
     <div className="myContainer">
     <div className='childContainer-1'>
         <h1 className="question">What were you using before Kundal?</h1>
@@ -44,16 +45,18 @@ const PreviousProdcutSurveyC = () => {
                 placeholder='Previous Product Name..'
                 onChange={handleChange}
                 className="input"
+                required
             />
         </div>
     </div>
     <button
-        onClick={handleSubmit}
+    type='submit'
         className="myBtn bg-blue-500 text-white py-2 rounded-full hover:bg-blue-600 focus:outline-none"
     >
         Next Step
     </button>
 </div>
+</form>
 
   );
 };

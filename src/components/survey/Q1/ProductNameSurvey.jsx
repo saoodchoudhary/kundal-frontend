@@ -4,6 +4,7 @@ import { SurveyAction } from '../../../store/surveySlice';
 
 const ProductNameSurvey = () => {
   const [productName, setProductName]= useState("")
+  const [myError, setMyError]= useState(false)
   const { currentProduct , qStep3} = useSelector(state => state.survey);
     const dispatch = useDispatch();
     const handleChange =(e)=>{
@@ -12,7 +13,7 @@ const ProductNameSurvey = () => {
 
     const handleNext = ()=>{
       console.log()
-      console.log("curne product"+currentProduct , "pro"+qStep3)
+      if(productName.length > 2){
       if(currentProduct ===1){
         dispatch(SurveyAction.submitQuestion({key:"productName1",value:productName}))
         dispatch(SurveyAction.questionCount1(2));
@@ -25,11 +26,14 @@ const ProductNameSurvey = () => {
         dispatch(SurveyAction.submitQuestion({key:"productName3",value:productName}))
         dispatch(SurveyAction.questionCount3(2));
       }
+      }else{
+        setMyError(true)
+      }
     }
   return (
     <div className="myContainer">
     <div className='childContainer-1'>
-        <h1 className="question">Product {currentProduct}</h1>
+        <h1 className="question">Enter Product Name</h1>
         <div className='inputContainer'>
             <input
                 id='productName'
@@ -40,6 +44,7 @@ const ProductNameSurvey = () => {
                 className="input"
             />
         </div>
+        {myError && <div className='text-red-600 text-center'>Please Enter Product Name</div>}
     </div>
     <button
         onClick={handleNext}

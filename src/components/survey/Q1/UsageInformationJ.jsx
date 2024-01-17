@@ -15,6 +15,7 @@ const UsageInformationJ = () => {
       if(totalQuestion === 1)
       {
         dispatch(SurveyAction.stepCount(7))
+        dispatch(SurveyAction.submitQuestion({key:"usageInformation1",value:answer}))
       }else{
       dispatch(SurveyAction.submitQuestion({key:"usageInformation1",value:answer}))
       dispatch(SurveyAction.currentProductCount(2))
@@ -35,15 +36,19 @@ const UsageInformationJ = () => {
     <div className="myContainer">
       <div className='childContainer-1'>
         <h1 className="question">Have you seen a difference after using Kundal hair/skin products?</h1>
-        <div className='btnContainer'>
-          <div>
-            <button onClick={() => handleNext("Yes")}>Yes</button>
+        <div className='btnImgContainer'>
+          <div className='imgBtn'  onClick={() => handleNext("Yes")} >
+            <img src='./survey/correct.png' alt='Yes'/>
+            <button>Yes</button>
           </div>
-          <div>
-            <button onClick={() => handleNext("No")}>No</button>
+          <div className='imgBtn' onClick={() => handleNext("No")}>
+            <img src='./survey/wrong.png' alt='No'/>
+            <button>No</button>
           </div>
         </div>
       </div>
+
+
     </div>
 
    

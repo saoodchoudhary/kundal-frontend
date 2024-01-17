@@ -3,10 +3,7 @@
     justify-content: center;
     align-items: center;
 }
-/* page */
-.progress-relative{
-    position: relative;
-}
+
 .img1{
     width: 340px;
     height: auto;

@@ -15,7 +15,7 @@ const NameStep = () => {
 
     // Function to handle name input change
     const handleChange = (e) => {
-        const { value } = e.target;
+        const {value} = e.target;
         setName(value);
     }
 

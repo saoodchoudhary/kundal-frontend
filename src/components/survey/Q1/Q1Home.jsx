@@ -37,8 +37,9 @@ const Q1Home = () => {
 
 
   return (
-    <div className="max-w-md mx-auto p-4">
-      <h2 className="text-lg font-semibold mb-4">Product : {currentProduct}</h2>
+    <div className="mx-auto p-4">
+      <h1 className=' text-xl sm:text-3xl  font-bold text-gray-800 text-center mt-3'>Q1: Product Evaluation</h1>
+      <h2 className=" text:lg sm:text-2xl font-semibold text-center mt-4">Product : {currentProduct}</h2>
       {
         qStep === 1 && <ProductNameSurvey/>        
       }
