@@ -25,46 +25,90 @@ const AdminDetailsSurveyPage = () => {
 
   return (
     <div className="container mx-auto p-8">
-      <h1 className="text-3xl font-bold mb-4">{survey.productName}</h1>
-      <p className="text-gray-600 mb-6">Customer Feedback: {survey.a}</p>
+      <h1 className="text-3xl font-bold mb-4">Survey Details for {survey.name}</h1>
 
+      {/* Basic Information Section */}
       <div className="border-t border-b border-gray-300 my-4 py-2">
-        <h2 className="text-lg font-bold mb-2">Survey Details:</h2>
+        <h2 className="text-lg font-bold mb-2">Basic Information:</h2>
         <ul>
-          <li className="mb-2">
-            <p className="font-semibold">Read Ingredients of Kundal Products: {survey.g}</p>
-          </li>
-          <li className="mb-2">
-            <p className="font-semibold">Cost: {survey.e}</p>
-          </li>
-          <li className="mb-2">
-            <p className="font-semibold">Better Replacement: {survey.f}</p>
-          </li>
-          <li className="mb-2">
-            <p className="font-semibold">Usage Frequency: {survey.i}</p>
-          </li>
-          <li className="mb-2">
-            <p className="font-semibold">Seen a Difference: {survey.j}</p>
-          </li>
+          <li><strong>Name:</strong> {survey.name}</li>
+          <li><strong>Age:</strong> {survey.age}</li>
+          <li><strong>Hair Kind:</strong> {survey.hairKind}</li>
+          <li><strong>Max Products:</strong> {survey.maxProduct}</li>
         </ul>
       </div>
 
+      {/* Product Information Section */}
       <div className="border-t border-b border-gray-300 my-4 py-2">
-        <h2 className="text-lg font-bold mb-2">Additional Information:</h2>
-        <p><strong>Preference:</strong> {survey.preference}</p>
-        <p><strong>Please share the list of products that you use:</strong> {survey.routine_a}</p>
-        <p><strong>From where do you buy your personal care products?:</strong> {survey.routine_b}</p>
-        <p><strong>What is your hair care routine?:</strong> {survey.routine_c}</p>
-        <p><strong>Allergies:</strong> {survey.allergies}</p>
-        <p><strong>Extra Feedback:</strong> {survey.extraFeedback}</p>
+        <h2 className="text-lg font-bold mb-2">Product Information:</h2>
+        <ul>
+          <li><strong>Product 1:</strong> {survey.productName1}</li>
+          <li><strong>Product 2:</strong> {survey.productName2}</li>
+          <li><strong>Product 3:</strong> {survey.productName3}</li>
+        </ul>
       </div>
 
+      {/* Opinions Section */}
       <div className="border-t border-b border-gray-300 my-4 py-2">
-        <h2 className="text-lg font-bold mb-2">Contact Information:</h2>
-        <p><strong>Name:</strong> {survey.name}</p>
-        <p><strong>Contact:</strong> {survey.contact}</p>
-        <p><strong>Email:</strong> {survey.email}</p>
+        <h2 className="text-lg font-bold mb-2">Opinions:</h2>
+        <ul>
+          <li><strong>Opinion 1:</strong> {survey.opinion1}</li>
+          <li><strong>Opinion 3:</strong> {survey.opinion3}</li>
+        </ul>
       </div>
+
+      {/* Pros Section */}
+      <div className="border-t border-b border-gray-300 my-4 py-2">
+        <h2 className="text-lg font-bold mb-2">Pros:</h2>
+        <ul>
+          <li>{survey.pros1}</li>
+          <li>{survey.pros2}</li>
+          <li>{survey.pros3}</li>
+        </ul>
+      </div>
+
+      {/* Cons Section */}
+      <div className="border-t border-b border-gray-300 my-4 py-2">
+        <h2 className="text-lg font-bold mb-2">Cons:</h2>
+        <ul>
+          <li>{survey.cons1}</li>
+          <li>{survey.cons2}</li>
+          <li>{survey.cons3}</li>
+        </ul>
+      </div>
+
+      {/* Previous Products Section */}
+      <div className="border-t border-b border-gray-300 my-4 py-2">
+        <h2 className="text-lg font-bold mb-2">Previous Products:</h2>
+        <ul>
+          <li>{survey.previousProduct_c1}</li>
+          <li>{survey.previousProduct_c2}</li>
+          <li>{survey.previousProduct_c3}</li>
+        </ul>
+      </div>
+
+      {/* Purchase Information Section */}
+      <div className="border-t border-b border-gray-300 my-4 py-2">
+        <h2 className="text-lg font-bold mb-2">Purchase Information:</h2>
+        <ul>
+          <li>{survey.purchaseInformation1}</li>
+          <li>{survey.purchaseInformation2}</li>
+          <li>{survey.purchaseInformation3}</li>
+        </ul>
+      </div>
+
+      {/* Cost Section */}
+      <div className="border-t border-b border-gray-300 my-4 py-2">
+        <h2 className="text-lg font-bold mb-2">Cost:</h2>
+        <ul>
+          <li>{survey.cost1}</li>
+          <li>{survey.cost2}</li>
+          <li>{survey.cost3}</li>
+        </ul>
+      </div>
+
+      {/* Add similar sections for other data points */}
+
     </div>
   );
 };

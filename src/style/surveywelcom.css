@@ -7,7 +7,7 @@
 .img1{
     width: 340px;
     height: auto;
-    position: absolute;
+    position: fixed;
     rotate: 44deg;
     left: -120px;
     top: 90px;
@@ -17,7 +17,7 @@
 .img2{
     width: 340px;
     height: auto;
-    position: absolute;
+    position: fixed;
     rotate: 44deg;
     left: -120px;
     bottom: 90px;
@@ -28,7 +28,7 @@
 .img3{
     width: 300px;
     height: auto;
-    position: absolute;
+    position: fixed;
     rotate: 324deg;
     right: -120px;
     top: 90px;
@@ -38,7 +38,7 @@
 .img4{
     width: 304px;
     height: auto;
-    position: absolute;
+    position: fixed;
     opacity: 0.3;    
     rotate: 324deg;
     right: -120px;
