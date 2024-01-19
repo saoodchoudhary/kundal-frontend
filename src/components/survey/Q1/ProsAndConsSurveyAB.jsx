@@ -27,17 +27,17 @@ const ProsAndConsSurveyAB = () => {
     if(currentProduct === 1){
       dispatch(SurveyAction.submitQuestion({key:"pros1",value:responses.positive}))
       dispatch(SurveyAction.submitQuestion({key:"cons1",value:responses.negative}))
-      dispatch(SurveyAction.questionCount1(4));
+      dispatch(SurveyAction.questionCount1(3));
     }
     else if(currentProduct === 2){
       dispatch(SurveyAction.submitQuestion({key:"pros2",value:responses.positive}))
       dispatch(SurveyAction.submitQuestion({key:"cons2",value:responses.negative}))
-      dispatch(SurveyAction.questionCount2(4));
+      dispatch(SurveyAction.questionCount2(3));
     }
     else if(currentProduct === 3) {
       dispatch(SurveyAction.submitQuestion({key:"pros3",value:responses.positive}))
       dispatch(SurveyAction.submitQuestion({key:"cons3",value:responses.negative}))
-      dispatch(SurveyAction.questionCount3(4));
+      dispatch(SurveyAction.questionCount3(3));
     }
     
   };
@@ -54,7 +54,7 @@ const ProsAndConsSurveyAB = () => {
             name="positive"
             value={responses.positive}
             onChange={handleInputChange}
-            placeholder="List the positive aspects..."
+            placeholder="Opinion: e.g., smell, texture, size, packaging, ingredients, hydrating, skin reaction, etc."
             required
           />
         </div>
@@ -66,7 +66,7 @@ const ProsAndConsSurveyAB = () => {
             name="negative"
             value={responses.negative}
             onChange={handleInputChange}
-            placeholder="List the negative aspects..."
+            placeholder="Opinion: e.g., smell, texture, size, packaging, ingredients, hydrating, skin reaction, etc."
             required
           />
         </div>

@@ -21,15 +21,15 @@ const CostInformationE = () => {
     
     if(currentProduct ===1){
       dispatch(SurveyAction.submitQuestion({key:"cost1",value:cost}))
-      dispatch(SurveyAction.questionCount1(7));
+      dispatch(SurveyAction.questionCount1(6));
     }
     else if(currentProduct === 2){
       dispatch(SurveyAction.submitQuestion({key:"cost2",value:cost}))
-      dispatch(SurveyAction.questionCount2(7));
+      dispatch(SurveyAction.questionCount2(6));
     }
     else if(currentProduct === 3) {
       dispatch(SurveyAction.submitQuestion({key:"cost3",value:cost}))
-      dispatch(SurveyAction.questionCount3(7));
+      dispatch(SurveyAction.questionCount3(6));
     }
     // Add your logic here to handle the survey submission
   };

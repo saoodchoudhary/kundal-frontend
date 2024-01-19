@@ -7,6 +7,7 @@ const ExtraFeedbackSurvey = () => {
   const dispatch = useDispatch();
 
   const {formData} = useSelector(state => state.survey)
+  console.log(formData)
 
 const handleChange = (e)=>{
     dispatch(SurveyAction.submitForm({key:"extraFeedback",value:e.target.value}))
@@ -15,22 +16,7 @@ const handleChange = (e)=>{
     e.preventDefault();
     console.log(formData)
     // Add logic to handle the submission of feedback
-    dispatch(SurveyAction.stepCount(10))
-
-
-    console.log(formData)
-    fetch(`${process.env.REACT_APP_API_URL}/survey/add`,{
-      method:"POST",
-      headers:{
-        'Content-Type': "application/json"
-      },
-      body:JSON.stringify(formData)
-    }).then(()=>{
-      console.log("success")
-    }).catch((error)=>{
-      console.log("error",error)
-    })
-
+    dispatch(SurveyAction.stepCount(11));
     // You can send the feedback to your backend or perform any other action
   };
 
@@ -44,7 +30,7 @@ const handleChange = (e)=>{
         <textarea
           id="feedback"
           name="feedback"
-          className="resize-none border rounded w-full py-2 max-w-md px-3 "
+          className=" border rounded w-full py-2 max-w-md px-3 "
           rows="8"
           placeholder='Additional Feedback or Comments'
           onChange={handleChange}

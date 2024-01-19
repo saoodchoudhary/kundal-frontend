@@ -10,7 +10,7 @@ const PersonalCareRoutineC = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(SurveyAction.stepCount(8))
+    dispatch(SurveyAction.stepCount(9))
     dispatch(SurveyAction.submitForm({key:"personalCareRoutineC",value:routine}))
   };
 

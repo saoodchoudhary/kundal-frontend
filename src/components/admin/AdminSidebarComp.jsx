@@ -170,6 +170,15 @@ const AdminSidebarComp = () => {
         </ListItem>
         </Link>
 
+        <Link to="/admin/productSurvey">
+        <ListItem>
+          <ListItemPrefix>
+            <MdNote className="h-5 w-5" />
+          </ListItemPrefix>
+          Add Product Survey
+        </ListItem>
+        </Link>
+
         <Link to="/admin/survey">
         <ListItem>
           <ListItemPrefix>

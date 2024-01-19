@@ -13,7 +13,7 @@ const Allergies = () => {
  console.log("product 1", product2)
 
   const handleNext = (val)=>{
-    dispatch(SurveyAction.stepCount(9))
+    dispatch(SurveyAction.stepCount(10))
     dispatch(SurveyAction.submitForm({key:"allergies",value:val}));
 
     
@@ -39,23 +39,19 @@ const Allergies = () => {
   }
 
   return (
-
-
     <div className="myContainer">
     <div className='childContainer-1'>
       <h1 className="question">Do you have any allergies ?</h1>
-      <div className='btnImgContainer'>
-          <div className='imgBtn'  onClick={() => handleNext("Yes")} >
-            <img src='./survey/correct.png' alt='Yes'/>
-            <button>Yes</button>
-          </div>
-          <div className='imgBtn' onClick={() => handleNext("No")}>
-            <img src='./survey/wrong.png' alt='No'/>
-            <button>No</button>
-          </div>
-        </div>
+      <div className='btnContainer'>
+        <div>
+        <button onClick={() => handleNext("Yes")}>Yes</button>
+      </div>
+        <div>
+        <button onClick={() => handleNext("No")}>No</button>
+      </div>
+      </div>
     </div>
-  </div>
+  </div>  
   
   );
 };

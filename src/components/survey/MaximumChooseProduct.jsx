@@ -23,7 +23,7 @@ const MaximumChooseProduct = () => {
         <div className='btnContainer'>
         {[1, 2, 3].map((num) => (
           <div>
-          <button onClick={() => handleNext(num)}>{num}</button>
+          <button key={num} onClick={() => handleNext(num)}>{num}</button>
         </div>
         ))}
         </div>

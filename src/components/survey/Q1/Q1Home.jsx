@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux'
 import ProductNameSurvey from './ProductNameSurvey';
-import OpinionSurvey from './OpinionSurvey';
 import ProsAndConsSurveyAB from './ProsAndConsSurveyAB';
 import PreviousProdcutSurveyC from './PreviousProdcutSurveyC';
 import PurchaseInformationD from './PurchaseInformationD';
@@ -44,34 +43,31 @@ const Q1Home = () => {
         qStep === 1 && <ProductNameSurvey/>        
       }
       {
-        qStep === 2 && <OpinionSurvey/>        
+        qStep === 2 && <ProsAndConsSurveyAB/>        
       }
       {
-        qStep === 3 && <ProsAndConsSurveyAB/>        
+        qStep === 3 && <PreviousProdcutSurveyC/>        
       }
       {
-        qStep === 4 && <PreviousProdcutSurveyC/>        
+        qStep === 4 && <PurchaseInformationD/>        
       }
       {
-        qStep === 5 && <PurchaseInformationD/>        
+        qStep === 5 && <CostInformationE/>        
       }
       {
-        qStep === 6 && <CostInformationE/>        
+        qStep === 6 && <ComparisonSurveyF/>        
       }
       {
-        qStep === 7 && <ComparisonSurveyF/>        
+        qStep === 7 && <IngredientAwarenessG/>        
       }
       {
-        qStep === 8 && <IngredientAwarenessG/>        
+        qStep === 8 && <WillingnesstoPayH/>        
       }
       {
-        qStep === 9 && <WillingnesstoPayH/>        
+        qStep === 9 && <HowManyTimesI/>        
       }
       {
-        qStep === 10 && <HowManyTimesI/>        
-      }
-      {
-        (qStep === 11 && currentProduct === 1) && <UsageInformationJ/>        
+        (qStep === 10 && currentProduct === 1) && <UsageInformationJ/>        
       }
 
     </div>

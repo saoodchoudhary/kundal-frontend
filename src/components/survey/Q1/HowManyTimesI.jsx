@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
@@ -11,6 +11,20 @@ const HowManyTimesI = () => {
  const totalQuestion = useSelector(state => state.survey.formData.maxProduct);
  const { currentProduct} = useSelector(state => state.survey);
 
+ const [name, setName] = useState('')
+ const {product1, product2, product3} = useSelector(state => state.survey);
+
+ useEffect(()=>{
+  if(currentProduct ===1){
+    setName(product1.productName1)
+  }
+  else if(currentProduct === 2){
+    setName(product2.productName2)
+  }
+  else if(currentProduct === 3) {
+    setName(product3.productName3)
+  }
+})
   const handleInputChange = (e) => {
     setUsageCount(e.target.value);
   };
@@ -20,7 +34,7 @@ const HowManyTimesI = () => {
 
     if(currentProduct ===1){
       dispatch(SurveyAction.submitQuestion({key:"howManyTimes1", value:usageCount}))
-      dispatch(SurveyAction.questionCount1(11));
+      dispatch(SurveyAction.questionCount1(10));
     }
     else if(currentProduct === 2){
       if(totalQuestion === 2)
@@ -42,7 +56,7 @@ const HowManyTimesI = () => {
 
     <div className="myContainer">
     <div className='childContainer-1'>
-        <h1 className="question">How many times have you used Kundal products?</h1>
+        <h1 className="question"> How many times you used {name} since you received it ?</h1>
         <div className='inputContainer'>
             <input
                 id='name'

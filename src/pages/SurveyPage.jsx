@@ -12,6 +12,8 @@ import Allergies from '../components/survey/Allergies'
 import ExtraFeedbackSurvey from '../components/survey/ExtraFeedbackSurvey'
 
 import "../style/surveywelcom.css"
+import Q3 from '../components/survey/Q3'
+import SurveyPreview from '../components/survey/SurveyPreview'
 const SurveyPage = () => {
     // const { step, navCount, currentProduct, qStep1, qStep2, qStep3, q2 } = useSelector(state => state.survey);
     const { step } = useSelector(state => state.survey);
@@ -95,16 +97,22 @@ const SurveyPage = () => {
                     step === 6 && <Q1Home />
                 }
                 {
-                    step === 7 && <Q2Home />
+                    step === 7 && <Q3 />
                 }
                 {
-                    step === 8 && <Allergies />
+                    step === 8 && <Q2Home />
                 }
                 {
-                    step === 9 && <ExtraFeedbackSurvey />
+                    step === 9 && <Allergies />
                 }
                 {
-                    step === 10 && <SurveySuccess />
+                    step === 10 && <ExtraFeedbackSurvey />
+                }
+                {
+                    step === 11 && <SurveyPreview />
+                }
+                {
+                    step === 12 && <SurveySuccess />
                 }
             </div>
         </div>

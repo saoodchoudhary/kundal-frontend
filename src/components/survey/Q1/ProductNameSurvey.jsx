@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
 const ProductNameSurvey = () => {
   const [productName, setProductName]= useState("")
+  const [items, setItems]= useState("")
   const [myError, setMyError]= useState(false)
   const { currentProduct } = useSelector(state => state.survey);
     const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const ProductNameSurvey = () => {
       setProductName(e.target.value)
     }
 
-    const handleNext = ()=>{
+    const handleNext = (productName)=>{
       console.log()
       if(productName.length > 2){
       if(currentProduct ===1){
@@ -30,29 +31,35 @@ const ProductNameSurvey = () => {
         setMyError(true)
       }
     }
+
+    useEffect(()=>{
+      const fetchData = async()=>{
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/survey/GetAllSurveyProduct`);
+        const data = await res.json();
+        console.log(data)
+        setItems(data)
+      }
+      fetchData();
+    },[])
+    if(!items)
+    {
+      return <div>LOading</div>
+    }
   return (
+
     <div className="myContainer">
-    <div className='childContainer-1'>
+      <div className='childContainer-1'>
         <h1 className="question">Enter Product Name</h1>
-        <div className='inputContainer'>
-            <input
-                id='productName'
-                type="text"
-                name="productName"
-                placeholder='Product Name'
-                onChange={handleChange}
-                className="input"
-            />
+        <div className='mt-6 flex justify-center gap-5 flex-wrap'>
+        {items.map((val, ind) => (
+          
+          <div className="px-6 py-3 border transition-all cursor-pointer rounded-md hover:bg-blue-500 hover:text-white" key={ind} onClick={() => handleNext(val.name)}>{val.name}</div>
+        
+        ))}
         </div>
-        {myError && <div className='text-red-600 text-center'>Please Enter Product Name</div>}
+      </div>
     </div>
-    <button
-        onClick={handleNext}
-        className="myBtn bg-blue-500 text-white py-2 rounded-full hover:bg-blue-600 focus:outline-none"
-    >
-        Next Step
-    </button>
-</div>
+
   );
 };
 

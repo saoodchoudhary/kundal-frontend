@@ -19,7 +19,7 @@ const PersonalCareRoutineB = () => {
     <div className="myContainer">
       <form onSubmit={handleSubmit}>
     <div className='childContainer-1'>
-        <h1 className="question">where do you buy your personal care products?</h1>
+        <h1 className="question">Where do you usually buy your personal care prodcuts from?</h1>
         <div className='inputContainer'>
             <input
                 id='name'

@@ -1,31 +1,29 @@
-// AdminDetailsSurveyPage.js
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Loading from '../../components/Loading';
+// SurveyPreview.js
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { SurveyAction } from '../../store/surveySlice';
 
-const AdminDetailsSurveyPage = () => {
-  const { id } = useParams();
-  const [survey, setSurvey] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Fetch survey details from the server based on surveyId
-    fetch(`${process.env.REACT_APP_API_URL}/survey/getSurvey/${id}`)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        setSurvey(data);
-        setIsLoading(false);
-      })
-      .catch(error => console.error('Error fetching survey details:', error));
-  }, [id, isLoading]);
-
-  if (isLoading) {
-    return <Loading/>;
-  }
-
+const SurveyPreview = () => {
+    const survey = useSelector(state => state.survey.formData)
+const dispatch = useDispatch();
+    const handleOnSubmit = ()=>{
+        
+    dispatch(SurveyAction.stepCount(12));
+        fetch(`${process.env.REACT_APP_API_URL}/survey/add`,{
+            method:"POST",
+            headers:{
+              'Content-Type': "application/json"
+            },
+            body:JSON.stringify(survey)
+          }).then(()=>{
+            console.log("success")
+          }).catch((error)=>{
+            console.log("error",error)
+          })
+    }
   return (
-    <div className="container mx-auto p-8 ">
+    <div className="bg-white p-6 rounded-md shadow-md max-w-xl mx-auto mt-8">
+    <div className="container mx-auto p-8">
       <h1 className="text-3xl font-bold mb-4">Survey Details for {(survey.name === "") ? "Unknown": survey.name}</h1>
 
       {/* Basic Information Section */}
@@ -120,7 +118,15 @@ const AdminDetailsSurveyPage = () => {
        
 
     </div>
+
+      <button
+        onClick={()=>{handleOnSubmit()}}
+        className="myBtn bg-blue-500 text-white py-2 rounded-full hover:bg-blue-600 focus:outline-none"
+    >
+        Submit Survey
+    </button>
+    </div>
   );
 };
 
-export default AdminDetailsSurveyPage;
+export default SurveyPreview;
