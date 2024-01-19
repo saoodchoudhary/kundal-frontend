@@ -22,7 +22,7 @@ const [name, setName] = useState('')
   else if(currentProduct === 3) {
     setName(product3.productName3)
   }
-},[name])
+},[name, currentProduct , product1.productName1, product2.productName2, product3.productName3])
   const handleNext = (value) => {
     
     if(currentProduct ===1){
