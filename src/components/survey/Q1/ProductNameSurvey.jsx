@@ -3,14 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
 const ProductNameSurvey = () => {
-  const [productName, setProductName]= useState("")
   const [items, setItems]= useState("")
-  const [myError, setMyError]= useState(false)
   const { currentProduct } = useSelector(state => state.survey);
     const dispatch = useDispatch();
-    const handleChange =(e)=>{
-      setProductName(e.target.value)
-    }
+  
 
     const handleNext = (productName)=>{
       console.log()
@@ -27,8 +23,6 @@ const ProductNameSurvey = () => {
         dispatch(SurveyAction.submitQuestion({key:"productName3",value:productName}))
         dispatch(SurveyAction.questionCount3(2));
       }
-      }else{
-        setMyError(true)
       }
     }
 

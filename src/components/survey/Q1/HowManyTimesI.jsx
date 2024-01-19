@@ -24,7 +24,7 @@ const HowManyTimesI = () => {
   else if(currentProduct === 3) {
     setName(product3.productName3)
   }
-})
+},[name])
   const handleInputChange = (e) => {
     setUsageCount(e.target.value);
   };

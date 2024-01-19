@@ -24,7 +24,7 @@ const WillingnesstoPayH = () => {
    else if(currentProduct === 3) {
      setName(product3.productName3)
    }
- })
+ },[name])
   const handleInputChange = (e) => {
     setResponse(e.target.value);
   };
