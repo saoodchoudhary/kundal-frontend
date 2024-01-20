@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
@@ -18,7 +18,19 @@ const ProsAndConsSurveyAB = () => {
     }));
   };
 
-  const { currentProduct} = useSelector(state => state.survey);
+  const { currentProduct , product1 , product2 , product3} = useSelector(state => state.survey);
+
+  useEffect(()=>{
+    if(currentProduct ===1){
+      setResponses({positive : product1.pros1 , negative : product1.cons1 });
+    }
+    else if(currentProduct === 2){
+      setResponses({positive : product2.pros2 , negative : product2.cons2 });
+    }
+    else if(currentProduct === 3) {
+      setResponses({positive : product3.pros3 , negative : product3.cons3 });
+    }
+  },[product1.pros1, product2.pros2 , product3.pros3, product1.cons1, product2.cons2, product3.cons3, currentProduct])
 
     
   const handleSubmit = (e) => {

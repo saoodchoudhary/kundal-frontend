@@ -17,14 +17,17 @@ const HowManyTimesI = () => {
  useEffect(()=>{
   if(currentProduct ===1){
     setName(product1.productName1)
+    setUsageCount(product1.howManyTimes1)
   }
   else if(currentProduct === 2){
     setName(product2.productName2)
+    setUsageCount(product2.howManyTimes2)
   }
   else if(currentProduct === 3) {
     setName(product3.productName3)
+    setUsageCount(product3.howManyTimes3)
   }
-},[name, currentProduct , product1.productName1, product2.productName2, product3.productName3])
+},[name,product1.howManyTimes1,product2.howManyTimes2,product3.howManyTimes3, currentProduct , product1.productName1, product2.productName2, product3.productName3])
   const handleInputChange = (e) => {
     setUsageCount(e.target.value);
   };
@@ -62,6 +65,7 @@ const HowManyTimesI = () => {
                 id='name'
                 type="text"
                 name="name"
+                value={usageCount}
                 onChange={handleInputChange}
                 className="input"
             />

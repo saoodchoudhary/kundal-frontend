@@ -1,5 +1,5 @@
 // PurchaseLocationSurvey.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 import "../../../style/survey.css"
@@ -7,8 +7,20 @@ const PurchaseInformationD = () => {
   const dispatch = useDispatch();
 
 
-  const { currentProduct } = useSelector(state => state.survey);
+  const { currentProduct, product1, product2, product3 } = useSelector(state => state.survey);
   const [name, setName] = useState()
+
+  useEffect(()=>{
+    if (currentProduct === 1) {
+      setName(product1.purchaseInformation1)
+    }
+    else if (currentProduct === 2) {
+      setName(product2.purchaseInformation2)
+    }
+    else if (currentProduct === 3) {
+      setName(product3.purchaseInformation3)
+    }
+  },[currentProduct, product1.purchaseInformation1, product2.purchaseInformation2 , product3.purchaseInformation3])
 
   const handleChange = (e) => {
     setName(e.target.value)
@@ -41,6 +53,7 @@ const PurchaseInformationD = () => {
               id='age'
               type="text"
               name="age"
+              value={name}
               placeholder=''
               onChange={handleChange}
               className="input"

@@ -14,14 +14,17 @@ const PreviousProdcutSurveyC = () => {
   useEffect(()=>{
     if(currentProduct ===1){
       setName(product1.productName1)
+      setPreviousProduct(product1.previousProduct_c1)
     }
     else if(currentProduct === 2){
       setName(product2.productName2)
+      setPreviousProduct(product2.previousProduct_c2)
     }
     else if(currentProduct === 3) {
       setName(product3.productName3)
+      setPreviousProduct(product3.previousProduct_c3)
     }
-  },[name, currentProduct , product1.productName1, product2.productName2, product3.productName3])
+  },[name,product1.previousProduct_c1, product2.previousProduct_c2, product3.previousProduct_c3, currentProduct , product1.productName1, product2.productName2, product3.productName3])
   
 
     const handleChange = (e) => {
@@ -55,6 +58,7 @@ const PreviousProdcutSurveyC = () => {
                 id='name'
                 type="text"
                 name="name"
+                value={previousProduct}
                 placeholder='Previous Product Name..'
                 onChange={handleChange}
                 className="input"

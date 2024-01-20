@@ -1,13 +1,18 @@
 // PersonalCareRoutine.jsx
 
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
 const PersonalCareRoutineA = () => {
   const dispatch= useDispatch();
   const [answer, setAnswer] = useState();
 
+  const {formData} = useSelector(state => state.survey)
+
+   useEffect(()=>{
+    setAnswer(formData.personalCareRoutineA)
+   },[formData.personalCareRoutineA])
 
   const hanldeSubmit = (e)=>{
     e.preventDefault();
@@ -26,6 +31,7 @@ const PersonalCareRoutineA = () => {
               type="text"
               name="personalCareRoutineA"
               placeholder=''
+              value={answer}
               onChange={(e)=>{setAnswer(e.target.value)}}
               className="input"
               required

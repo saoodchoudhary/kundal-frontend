@@ -1,20 +1,23 @@
 
-import React, {  } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../store/surveySlice';
 
 const ExtraFeedbackSurvey = () => {
   const dispatch = useDispatch();
-
+  const [name, setName] = useState('')
   const {formData} = useSelector(state => state.survey)
-  console.log(formData)
+  
+  useEffect(()=>{
+    setName(formData.extraFeedback)
+  },[formData.extraFeedback])
 
 const handleChange = (e)=>{
-    dispatch(SurveyAction.submitForm({key:"extraFeedback",value:e.target.value}))
+  setName(e.target.value)
 }
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData)
+    dispatch(SurveyAction.submitForm({key:"extraFeedback",value:name}))
     // Add logic to handle the submission of feedback
     dispatch(SurveyAction.stepCount(11));
     // You can send the feedback to your backend or perform any other action
@@ -32,6 +35,7 @@ const handleChange = (e)=>{
           name="feedback"
           className=" border rounded w-full py-2 max-w-md px-3 "
           rows="8"
+          value={name}
           placeholder='Additional Feedback or Comments'
           onChange={handleChange}
           required

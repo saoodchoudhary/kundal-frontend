@@ -1,12 +1,18 @@
 // ProductPurchaseSource.jsx
 
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
 const PersonalCareRoutineB = () => {
   const [source, setSource] = useState('');
   const dispatch= useDispatch();
+
+  const {formData} = useSelector(state => state.survey)
+
+  useEffect(()=>{
+   setSource(formData.personalCareRoutineB)
+  },[formData.personalCareRoutineB])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +31,7 @@ const PersonalCareRoutineB = () => {
                 id='name'
                 type="text"
                 name="name"
+                value={source}
                 onChange={(e) => setSource(e.target.value)}
                 className="input"
                 required

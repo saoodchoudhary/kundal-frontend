@@ -17,14 +17,18 @@ const WillingnesstoPayH = () => {
   useEffect(()=>{
    if(currentProduct ===1){
      setName(product1.productName1)
+     setResponse(product1.willingnesstoPay1)
    }
    else if(currentProduct === 2){
      setName(product2.productName2)
+     setResponse(product2.willingnesstoPay2)
    }
    else if(currentProduct === 3) {
      setName(product3.productName3)
+     setResponse(product3.willingnesstoPay3)
    }
- },[name, currentProduct , product1.productName1, product2.productName2, product3.productName3])
+ },[name, currentProduct , product1.productName1, product2.productName2, product3.productName3, product1.willingnesstoPay1 ,product2.willingnesstoPay2, product3.willingnesstoPay3])
+
   const handleInputChange = (e) => {
     setResponse(e.target.value);
   };
@@ -56,6 +60,7 @@ const WillingnesstoPayH = () => {
                 id='name'
                 type="text"
                 name="name"
+                value={response}
                 onChange={handleInputChange}
                 className="input"
             />

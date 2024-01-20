@@ -1,12 +1,18 @@
 // HairCareRoutine.jsx
 
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../../store/surveySlice';
 
 const PersonalCareRoutineC = () => {
   const [routine, setRoutine] = useState('');
   const dispatch = useDispatch();
+
+  const {formData} = useSelector(state => state.survey)
+
+  useEffect(()=>{
+   setRoutine(formData.personalCareRoutineC)
+  },[formData.personalCareRoutineC])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,6 +32,7 @@ const PersonalCareRoutineC = () => {
                 id='name'
                 type="text"
                 name="name"
+                value={routine}
                 onChange={(e) => setRoutine(e.target.value)}
                 className="input"
             />

@@ -54,6 +54,9 @@ const ComparisonSurveyF = () => {
         </div>
       </div>
     </div>
+
+   
+
   );
 };
 
