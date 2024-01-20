@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SurveyAction } from "../../../store/surveySlice";
 import { MdArrowDropDown } from "react-icons/md";
+import Loading from "../../Loading"
 
 const ProductNameSurvey = () => {
   const [items, setItems] = useState();
@@ -70,7 +71,7 @@ const ProductNameSurvey = () => {
   }, []);
 
   if (!items) {
-    return <div>Loading...</div>;
+    return <Loading/>
   }
 
   return (
@@ -96,7 +97,7 @@ const ProductNameSurvey = () => {
                   maxHeight: selectedCategory === val.name ? "2500px" : "0",
                   transition: "max-height 0.5s ease-in-out",
                 }}
-                className="overflow-hidden shadow-md"
+                className="overflow-hidden shadow-md bg-white"
               >
                 {selectedCategory === val.name &&
                   products &&
