@@ -35,6 +35,7 @@ const PersonalCareRoutineC = () => {
                 value={routine}
                 onChange={(e) => setRoutine(e.target.value)}
                 className="input"
+                required
             />
         </div>
     </div>

@@ -1,7 +1,14 @@
 .myContainer{
     margin: 40px 0;
 }
-
+/* previewContainer */
+.previewContainer li{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(251, 253, 255);
+    border-bottom: 1px solid rgb(221, 221, 221);
+    padding: 2px 2px 2px 5px;
+}
 .myBtn{
     position: fixed;
     bottom: 40px;

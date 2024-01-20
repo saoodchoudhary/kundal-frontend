@@ -58,6 +58,7 @@ const HowManyTimesI = () => {
   return (
 
     <div className="myContainer">
+      <form onSubmit={handleSubmit}>
     <div className='childContainer-1'>
         <h1 className="question"> How many times you used {name} since you received it ?</h1>
         <div className='inputContainer'>
@@ -68,15 +69,17 @@ const HowManyTimesI = () => {
                 value={usageCount}
                 onChange={handleInputChange}
                 className="input"
+                required
             />
         </div>
     </div>
     <button
-        onClick={handleSubmit}
+    type='submit'
         className="myBtn bg-blue-500 text-white py-2 rounded-full hover:bg-blue-600 focus:outline-none"
     >
         Next Step
     </button>
+    </form>
 </div>
 
   );
