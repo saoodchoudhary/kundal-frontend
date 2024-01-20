@@ -14,14 +14,15 @@ const SurveySlice = createSlice({
         qStep3:1, 
         navCount:3,
         q2:1,
-        currentProduct:1
+        currentProduct:1,
     },
     reducers:{
         stepCount:(state, action)=>{
             state.step = action.payload
-
         },
+       
         questionCount1:(state, action)=>{
+            console.log(state.qStep1)
             state.qStep1 = action.payload
         },
         questionCount2:(state, action)=>{

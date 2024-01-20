@@ -1,20 +1,25 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../store/surveySlice';
 
 const Q3 = () => {
     const [source, setSource] = useState('');
+    const data = useSelector(state => state.survey.formData)
     const dispatch= useDispatch();
-  
+
+  useEffect(()=>{
+      setSource(data.q2)
+  },[])
+
     const handleSubmit = (e) => {
       e.preventDefault();
-      dispatch(SurveyAction.stepCount(8));
+      dispatch(SurveyAction.stepCount(7));
       dispatch(SurveyAction.submitForm({key:"q2",value:source}))
     };
   
   return (
     <div>
-    <h1 className=' text-xl sm:text-3xl  font-bold text-gray-800 text-center mt-3'>Q2 Product Preference*</h1>
+    <h1 className=' text-xl sm:text-3xl  font-bold text-gray-800 text-center mt-3'>Q1 Product Preference*</h1>
     <div className="myContainer">
       <form onSubmit={handleSubmit}>
     <div className='childContainer-1'>
@@ -24,6 +29,7 @@ const Q3 = () => {
                 id='name'
                 name="name"
                 rows={6}
+                value={source}
                 onChange={(e) => setSource(e.target.value)}
                 className="border rounded w-full py-2 max-w-md px-3"
                 required

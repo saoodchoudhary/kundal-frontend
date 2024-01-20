@@ -26,7 +26,7 @@ const UsageInformationJ = () => {
     if(currentProduct ===1){ 
       if(totalQuestion === 1)
       {
-        dispatch(SurveyAction.stepCount(7))
+        dispatch(SurveyAction.stepCount(8))
         dispatch(SurveyAction.submitQuestion({key:"usageInformation1",value:answer}))
       }else{
       dispatch(SurveyAction.submitQuestion({key:"usageInformation1",value:answer}))
