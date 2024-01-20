@@ -9,7 +9,7 @@ const Q3 = () => {
 
   useEffect(()=>{
       setSource(data.q2)
-  },[])
+  },[data.q2])
 
     const handleSubmit = (e) => {
       e.preventDefault();
