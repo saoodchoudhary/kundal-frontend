@@ -67,7 +67,7 @@ const SurveyPreview = () => {
             <li><strong>cons:</strong> {survey.cons1}</li>
             <li><strong>What were you using before {survey.productName1}?</strong> {survey.previousProduct_c1}</li>
             <li><strong>Where did You Purchase it from?</strong> {survey.purchaseInformation1}</li>
-            <li><strong>Cost :</strong> {survey.cost1}</li>
+            <li><strong>Price :</strong> {survey.cost1}</li>
             <li><strong>Is {survey.productName1} a better replacement for your current Product?</strong> {survey.comparisonSurvey1}</li>
             <li><strong>Have You read the ingredients of {survey.productName1}?</strong> {survey.ingredientAwarness1}</li>
             <li><strong>How much would you be willing to pay for {survey.productName1}?</strong> {survey.willingnesstoPay1}</li>
@@ -86,7 +86,7 @@ const SurveyPreview = () => {
               <li><strong>cons:</strong> {survey.cons2}</li>
               <li><strong>What were you using before {survey.productName2}?</strong> {survey.previousProduct_c2}</li>
               <li><strong>Where did You Purchase it from?</strong> {survey.purchaseInformation2}</li>
-              <li><strong>Cost :</strong> {survey.cost2}</li>
+              <li><strong>Price :</strong> {survey.cost2}</li>
               <li><strong>Is {survey.productName2} a better replacement for your current Product?</strong> {survey.comparisonSurvey2}</li>
               <li><strong>Have You read the ingredients of {survey.productName2}?</strong> {survey.ingredientAwarness2}</li>
               <li><strong>How much would you be willing to pay for {survey.productName2}?</strong> {survey.willingnesstoPay2}</li>
@@ -106,7 +106,7 @@ const SurveyPreview = () => {
               <li><strong>cons:</strong> {survey.cons3}</li>
               <li><strong>What were you using before {survey.productName3}?</strong> {survey.previousProduct_c3}</li>
               <li><strong>Where did You Purchase it from?</strong> {survey.purchaseInformation3}</li>
-              <li><strong>Cost :</strong> {survey.cost3}</li>
+              <li><strong>Price :</strong> {survey.cost3}</li>
               <li><strong>Is {survey.productName3} a better replacement for your current Product?</strong> {survey.comparisonSurvey3}</li>
               <li><strong>Have You read the ingredients of {survey.productName3}?</strong> {survey.ingredientAwarness3}</li>
               <li><strong>How much would you be willing to pay for {survey.productName3}?</strong> {survey.willingnesstoPay3}</li>
