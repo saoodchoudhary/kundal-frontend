@@ -27,6 +27,7 @@ import SurveySuccess from './pages/SurveySuccess';
 import AdminSurveyPage from './pages/admin/AdminSurveyPage';
 import AdminDetailsSurveyPage from './pages/admin/AdminDetailsSurveyPage';
 import AdminProductSurveyPage from './pages/admin/AdminProductSurveyPage';
+import AdminSpecificProductSurvey from './pages/admin/AdminSpecificProductSurvey';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
       <Route path="productSurvey" element={<AdminProductSurveyPage />} />
       <Route path="survey" element={<AdminSurveyPage />} />
       <Route path="survey/details/:id" element={<AdminDetailsSurveyPage />} />
+      <Route path="survey/specificProduct/:id" element={<AdminSpecificProductSurvey />} />
       <Route path="add/product" element={<AdminAddProductPage />} />
       <Route path="update/product/:id" element={<AdminUpdateProductPage />} />
       <Route path="usermanagment" element={<AdminUserManagmentPage />} />

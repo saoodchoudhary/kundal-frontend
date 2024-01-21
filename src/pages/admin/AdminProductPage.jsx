@@ -105,6 +105,11 @@ const AdminProductPage = () => {
                   Update
                 </Link>
                 
+<div className='flex flex-col gap-2'>
+                <Link to={`/admin/survey/specificProduct/${product.title}`}
+                  className={`${(product.status === "show") ? "bg-blue-500 focus:bg-blue-600 hover:bg-cyan-600" : "bg-orange-500 focus:bg-orange-600 hover:bg-orange-600"} text-white px-3 py-1 rounded  focus:outline-none text-center text-sm`}
+                >Survey</Link>
+
                 <button
                   onClick={() => handleHideClick(product)}
                   className={`${(product.status === "show") ? "bg-cyan-500 focus:bg-cyan-600 hover:bg-cyan-600" : "bg-orange-500 focus:bg-orange-600 hover:bg-orange-600"} text-white px-3 py-1 rounded  focus:outline-none  text-sm`}
@@ -112,14 +117,17 @@ const AdminProductPage = () => {
                  {product.status === "show" ? "Hide Product" : "Show Product" }
                 </button>
 
+              </div>
                 <button
                   onClick={() => handleDeleteClick(product)}
                   className="bg-red-500 text-sm text-white px-3 py-1 rounded hover:bg-red-600 focus:outline-none focus:bg-red-600"
                 >
                   Delete
                 </button>
+
                 {/* Add Edit button or other actions */}
-              </div>
+            </div>
+
             </div>
           ))}
 
