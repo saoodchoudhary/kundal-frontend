@@ -13,7 +13,7 @@ const Allergies = () => {
  console.log("product 1", product2)
 
   const handleNext = (val)=>{
-    dispatch(SurveyAction.stepCount(10))
+    dispatch(SurveyAction.stepCount(9))
     dispatch(SurveyAction.submitForm({key:"allergies",value:val}));
 
     

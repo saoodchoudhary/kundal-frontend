@@ -24,12 +24,12 @@ const SurveyPage = () => {
         console.log("handleback qstep1: " + qStep1)
         console.log("handleback step: " + step)
         if (formData.maxProduct ) {
-            if (step === 8) {
+            if (step === 7) {
                 if (formData.maxProduct === 1) {
                     if (q2 === 1) {
                         dispatch(SurveyAction.currentProductCount(1))
                         dispatch(SurveyAction.questionCount1(10));
-                        dispatch(SurveyAction.stepCount(7))
+                        dispatch(SurveyAction.stepCount(6))
                     } else {
                         dispatch(SurveyAction.q2Count(q2 - 1))
                     }
@@ -37,7 +37,7 @@ const SurveyPage = () => {
                     if (q2 === 1) {
                         dispatch(SurveyAction.currentProductCount(2))
                         dispatch(SurveyAction.questionCount2(9));
-                        dispatch(SurveyAction.stepCount(7))
+                        dispatch(SurveyAction.stepCount(6))
                     } else {
                         dispatch(SurveyAction.q2Count(q2 - 1))
                     }
@@ -46,31 +46,31 @@ const SurveyPage = () => {
                     if (q2 === 1) {
                         dispatch(SurveyAction.currentProductCount(3))
                         dispatch(SurveyAction.questionCount3(9));
-                        dispatch(SurveyAction.stepCount(7))
+                        dispatch(SurveyAction.stepCount(6))
                     } else {
                         dispatch(SurveyAction.q2Count(q2 - 1))
                     }
                 }
             }
-            else if (step < 7 || step > 8) {
+            else if (step < 6 || step > 7) {
                 if(step !== 1)
                 {
                 dispatch(SurveyAction.stepCount(step - 1));
                 }
             }
             else {
-                if (step === 7) {
+                if (step === 6) {
 
                     if (formData.maxProduct === 1) {
                         if (qStep1 === 1) {
-                            dispatch(SurveyAction.stepCount(6))
+                            dispatch(SurveyAction.stepCount(5))
                         } else {
                             dispatch(SurveyAction.questionCount1(qStep1 - 1))
                         }
                     } else if (formData.maxProduct === 2) {
                         if (currentProduct === 1) {
                             if (qStep1 === 1) {
-                                dispatch(SurveyAction.stepCount(6))
+                                dispatch(SurveyAction.stepCount(5))
                             } else {
                                 dispatch(SurveyAction.questionCount1(qStep1 - 1))
                             }
@@ -88,7 +88,7 @@ const SurveyPage = () => {
                     } else if (formData.maxProduct === 3) {
                         if (currentProduct === 1) {
                             if (qStep1 === 1) {
-                                dispatch(SurveyAction.stepCount(6))
+                                dispatch(SurveyAction.stepCount(5))
                             } else {
                                 dispatch(SurveyAction.questionCount1(qStep1 - 1))
                             }
@@ -211,19 +211,19 @@ const SurveyPage = () => {
                     step === 5 && <MaximumChooseProduct />
                 }
                 {
-                    step === 6 && <Q3 />
+                    step === 6 && <Q1Home />
                 }
                 {
-                    step === 7 && <Q1Home />
+                    step === 7 && <Q2Home />
                 }
                 {
-                    step === 8 && <Q2Home />
+                    step === 8 && <Allergies />
                 }
                 {
-                    step === 9 && <Allergies />
+                    step === 9 && <ExtraFeedbackSurvey />
                 }
                 {
-                    step === 10 && <ExtraFeedbackSurvey />
+                    step === 10 && <Q3 />
                 }
                 {
                     step === 11 && <SurveyPreview />

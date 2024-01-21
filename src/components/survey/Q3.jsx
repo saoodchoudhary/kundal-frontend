@@ -13,13 +13,13 @@ const Q3 = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      dispatch(SurveyAction.stepCount(7));
+      dispatch(SurveyAction.stepCount(11));
       dispatch(SurveyAction.submitForm({key:"q2",value:source}))
     };
   
   return (
     <div>
-    <h1 className=' text-xl sm:text-3xl  font-bold text-gray-800 text-center mt-3'>Q1 Product Preference*</h1>
+    <h1 className=' text-xl sm:text-3xl  font-bold text-gray-800 text-center mt-3'>Product Preference*</h1>
     <div className="myContainer">
       <form onSubmit={handleSubmit}>
     <div className='childContainer-1'>

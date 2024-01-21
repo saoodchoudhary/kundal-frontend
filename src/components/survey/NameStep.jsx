@@ -32,7 +32,7 @@ const NameStep = () => {
         setPhone(data.phone)
 
         }
-    }, [name, email, phone, data.name, data.email, data.phone])
+    }, [ data.name, data.email, data.phone])
     // Function to handle name input change
     // const handleChange = (e) => {
     //     const {value} = e.target;

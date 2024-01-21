@@ -8,7 +8,7 @@ const Q2Home = () => {
   const {q2}  = useSelector(state => state.survey)
   return (
     <div>
-      <h1 className=' text-xl sm:text-3xl  font-bold text-gray-800 text-center mt-3'>Q3 Personal Care Routine</h1>
+      <h1 className=' text-xl sm:text-3xl  font-bold text-gray-800 text-center mt-3'>Personal Care Routine</h1>
       {
         q2 === 1 && <PersonalCareRoutineA/>
       }

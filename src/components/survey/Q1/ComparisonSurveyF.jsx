@@ -27,15 +27,15 @@ const ComparisonSurveyF = () => {
   const handleNext = (value) => {
     if(currentProduct ===1){
       dispatch(SurveyAction.submitQuestion({key:"comparisonSurvey1",value:value}));
-      dispatch(SurveyAction.questionCount1(7));
+      dispatch(SurveyAction.questionCount1(8));
     }
     else if(currentProduct === 2){
       dispatch(SurveyAction.submitQuestion({key:"comparisonSurvey2",value:value}));
-      dispatch(SurveyAction.questionCount2(7));
+      dispatch(SurveyAction.questionCount2(8));
     }
     else if(currentProduct === 3) {
       dispatch(SurveyAction.submitQuestion({key:"comparisonSurvey3",value:value}));
-      dispatch(SurveyAction.questionCount3(7));
+      dispatch(SurveyAction.questionCount3(8));
     }
   };
 

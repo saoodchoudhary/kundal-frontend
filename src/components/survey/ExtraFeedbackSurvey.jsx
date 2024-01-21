@@ -19,7 +19,7 @@ const handleChange = (e)=>{
     e.preventDefault();
     dispatch(SurveyAction.submitForm({key:"extraFeedback",value:name}))
     // Add logic to handle the submission of feedback
-    dispatch(SurveyAction.stepCount(11));
+    dispatch(SurveyAction.stepCount(10));
     // You can send the feedback to your backend or perform any other action
   };
 

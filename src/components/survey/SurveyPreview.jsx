@@ -9,7 +9,7 @@ const SurveyPreview = () => {
   const dispatch = useDispatch();
 
   const handleEditBtn = () => {
-    dispatch(SurveyAction.stepCount(7))
+    dispatch(SurveyAction.stepCount(6))
     dispatch(SurveyAction.questionCount1(1))
     dispatch(SurveyAction.questionCount2(1))
     dispatch(SurveyAction.questionCount3(1))
@@ -57,13 +57,6 @@ const SurveyPreview = () => {
           </ul>
         </div>
 
-        {/* Q1: Product Preference Section */}
-        <div className="section-box border-t border-b border-gray-300 my-4 py-2 bg-white px-1">
-          <h2 className="text-lg font-bold mb-2"> Q1: Product Preference :</h2>
-          <ul>
-            <li><strong>Product Preference :</strong> {survey.q2}</li>
-          </ul>
-        </div>
 
         {/* Product 1 Information Section */}
         <div className="section-box border-t border-b border-gray-300 my-4 py-2 bg-white px-1">
@@ -124,7 +117,7 @@ const SurveyPreview = () => {
 
         {/* Q3 Personal Care Routine Section */}
         <div className="section-box border-t border-b border-gray-300 my-4 py-2 bg-white px-1">
-          <h2 className="text-lg font-bold mb-2">Q3 Personal Care Routine :</h2>
+          <h2 className="text-lg font-bold mb-2">Personal Care Routine :</h2>
           <ul>
             <li><strong>What is your personal care routine? </strong> {survey.personalCareRoutineA}</li>
             <li><strong>From where do you buy your personal care products?</strong> {survey.personalCareRoutineB}</li>
@@ -138,6 +131,15 @@ const SurveyPreview = () => {
           <ul>
             <li><strong>Allergies:</strong> {survey.allergies}</li>
             <li><strong>Extra Feedback :</strong> {survey.extraFeedback}</li>
+          </ul>
+        </div>
+
+        
+        {/* Q1: Product Preference Section */}
+        <div className="section-box border-t border-b border-gray-300 my-4 py-2 bg-white px-1">
+          <h2 className="text-lg font-bold mb-2">Product Preference :</h2>
+          <ul>
+            <li><strong>Product Preference :</strong> {survey.q2}</li>
           </ul>
         </div>
 

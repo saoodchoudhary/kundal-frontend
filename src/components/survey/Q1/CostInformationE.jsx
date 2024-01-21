@@ -32,15 +32,15 @@ const CostInformationE = () => {
 
     if (currentProduct === 1) {
       dispatch(SurveyAction.submitQuestion({ key: "cost1", value: cost }))
-      dispatch(SurveyAction.questionCount1(6));
+      dispatch(SurveyAction.questionCount1(7));
     }
     else if (currentProduct === 2) {
       dispatch(SurveyAction.submitQuestion({ key: "cost2", value: cost }))
-      dispatch(SurveyAction.questionCount2(6));
+      dispatch(SurveyAction.questionCount2(7));
     }
     else if (currentProduct === 3) {
       dispatch(SurveyAction.submitQuestion({ key: "cost3", value: cost }))
-      dispatch(SurveyAction.questionCount3(6));
+      dispatch(SurveyAction.questionCount3(7));
     }
     // Add your logic here to handle the survey submission
   };
@@ -51,13 +51,13 @@ const CostInformationE = () => {
     <div className="myContainer">
       <form onSubmit={handleSubmit}>
         <div className='childContainer-1'>
-          <h1 className="question">Enter Cost</h1>
+          <h1 className="question">Enter Price</h1>
           <div className='inputContainer'>
             <input
               id='name'
               type="text"
               name="name"
-              placeholder='Enter Cost'
+              placeholder='Enter Price'
               value={cost}
               onChange={handleInputChange}
               className="input"

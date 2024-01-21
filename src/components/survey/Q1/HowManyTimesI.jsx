@@ -42,7 +42,7 @@ const HowManyTimesI = () => {
     else if(currentProduct === 2){
       if(totalQuestion === 2)
       {
-        dispatch(SurveyAction.stepCount(8))
+        dispatch(SurveyAction.stepCount(7))
       }else{
       dispatch(SurveyAction.submitQuestion({key:"howManyTimes2", value:usageCount}))
       dispatch(SurveyAction.currentProductCount(3))
@@ -50,7 +50,7 @@ const HowManyTimesI = () => {
     }
     else if(currentProduct === 3) {
       dispatch(SurveyAction.submitQuestion({key:"howManyTimes3", value:usageCount}))
-      dispatch(SurveyAction.stepCount(8))
+      dispatch(SurveyAction.stepCount(7))
     }
     
   };

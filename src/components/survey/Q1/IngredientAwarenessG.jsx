@@ -27,15 +27,15 @@ const [name, setName] = useState('')
     
     if(currentProduct ===1){
       dispatch(SurveyAction.submitQuestion({key:"ingredientAwarness1",value:value}))
-      dispatch(SurveyAction.questionCount1(8));
+      dispatch(SurveyAction.questionCount1(3));
     }
     else if(currentProduct === 2){
       dispatch(SurveyAction.submitQuestion({key:"ingredientAwarness2",value:value}))
-      dispatch(SurveyAction.questionCount2(8));
+      dispatch(SurveyAction.questionCount2(3));
     }
     else if(currentProduct === 3) {
       dispatch(SurveyAction.submitQuestion({key:"ingredientAwarness3",value:value}))
-      dispatch(SurveyAction.questionCount3(8));
+      dispatch(SurveyAction.questionCount3(3));
     }
     
   };

@@ -39,17 +39,17 @@ const ProsAndConsSurveyAB = () => {
     if(currentProduct === 1){
       dispatch(SurveyAction.submitQuestion({key:"pros1",value:responses.positive}))
       dispatch(SurveyAction.submitQuestion({key:"cons1",value:responses.negative}))
-      dispatch(SurveyAction.questionCount1(3));
+      dispatch(SurveyAction.questionCount1(4));
     }
     else if(currentProduct === 2){
       dispatch(SurveyAction.submitQuestion({key:"pros2",value:responses.positive}))
       dispatch(SurveyAction.submitQuestion({key:"cons2",value:responses.negative}))
-      dispatch(SurveyAction.questionCount2(3));
+      dispatch(SurveyAction.questionCount2(4));
     }
     else if(currentProduct === 3) {
       dispatch(SurveyAction.submitQuestion({key:"pros3",value:responses.positive}))
       dispatch(SurveyAction.submitQuestion({key:"cons3",value:responses.negative}))
-      dispatch(SurveyAction.questionCount3(3));
+      dispatch(SurveyAction.questionCount3(4));
     }
     
   };

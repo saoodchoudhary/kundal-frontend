@@ -31,15 +31,15 @@ const PurchaseInformationD = () => {
     e.preventDefault();
     if (currentProduct === 1) {
       dispatch(SurveyAction.submitQuestion({ key: "purchaseInformation1", value: name }))
-      dispatch(SurveyAction.questionCount1(5));
+      dispatch(SurveyAction.questionCount1(6));
     }
     else if (currentProduct === 2) {
       dispatch(SurveyAction.submitQuestion({ key: "purchaseInformation2", value:  name }))
-      dispatch(SurveyAction.questionCount2(5));
+      dispatch(SurveyAction.questionCount2(6));
     }
     else if (currentProduct === 3) {
       dispatch(SurveyAction.submitQuestion({ key: "purchaseInformation3", value: name }))
-      dispatch(SurveyAction.questionCount3(5));
+      dispatch(SurveyAction.questionCount3(6));
     }
   }
 

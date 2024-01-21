@@ -34,15 +34,15 @@ const PreviousProdcutSurveyC = () => {
     e.preventDefault();
     if(currentProduct ===1){
       dispatch(SurveyAction.submitQuestion({key:"previousProduct_c1", value:previousProduct}));
-      dispatch(SurveyAction.questionCount1(4));
+      dispatch(SurveyAction.questionCount1(5));
     }
     else if(currentProduct === 2){
       dispatch(SurveyAction.submitQuestion({key:"previousProduct_c2", value:previousProduct}));
-      dispatch(SurveyAction.questionCount2(4));
+      dispatch(SurveyAction.questionCount2(5));
     }
     else if(currentProduct === 3) {
       dispatch(SurveyAction.submitQuestion({key:"previousProduct_c3", value:previousProduct}));
-      dispatch(SurveyAction.questionCount3(4));
+      dispatch(SurveyAction.questionCount3(5));
     }
     console.log('Survey submitted:', { previousProduct });
   };
