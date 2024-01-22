@@ -1,11 +1,13 @@
 // SurveyPreview.js
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SurveyAction } from '../../store/surveySlice';
 import { MdEdit } from 'react-icons/md';
+import Loading from '../Loading';
 
 const SurveyPreview = () => {
-  const survey = useSelector(state => state.survey.formData)
+  const survey = useSelector(state => state.survey.formData);
+  const [isLoading , setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
   const handleEditBtn = () => {
@@ -19,8 +21,7 @@ const SurveyPreview = () => {
 
 
   const handleOnSubmit = () => {
-
-    dispatch(SurveyAction.stepCount(12));
+    setIsLoading(true)
     fetch(`${process.env.REACT_APP_API_URL}/survey/add`, {
       method: "POST",
       headers: {
@@ -29,9 +30,16 @@ const SurveyPreview = () => {
       body: JSON.stringify(survey)
     }).then(() => {
       console.log("success")
+    dispatch(SurveyAction.stepCount(12));
+    setIsLoading(false)
     }).catch((error) => {
-      console.log("error", error)
+      console.log("error", error);
     })
+  }
+
+  if(isLoading)
+  {
+    return <Loading/>
   }
   return (
 

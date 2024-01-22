@@ -5,7 +5,6 @@ import { Link, useParams } from 'react-router-dom';
 
 const AdminSpecificProductSurvey = () => {
   const {id} = useParams();
-  console.log(id)
 const  [items, setItems] = useState()
 const [isLoading, setIsLoading]= useState(true);
 
@@ -32,7 +31,7 @@ const handleDeleteSurvey = (idm) =>{
       const data = await res.json();
       console.log(data)
       setItems(data)
-        setIsLoading(false)  
+      setIsLoading(false)  
 
     };
 
