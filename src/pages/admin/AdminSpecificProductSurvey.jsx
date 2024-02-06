@@ -1,76 +1,95 @@
 import React, { useEffect, useState } from 'react'
 import Loading from '../../components/Loading';
-import { FaEye } from "react-icons/fa";
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const AdminSpecificProductSurvey = () => {
-  const {id} = useParams();
-const  [items, setItems] = useState()
-const [isLoading, setIsLoading]= useState(true);
+  const { id } = useParams();
+  const [items, setItems] = useState()
+  const [isLoading, setIsLoading] = useState(true);
 
-const handleDeleteSurvey = (idm) =>{
-  setIsLoading(true)
-  fetch(`${process.env.REACT_APP_API_URL}/survey/deleteSurvey/${idm}`,{
-    method:"DELETE"
-  })
-  .then(response => response.json())
-  .then(data => {
-    setIsLoading(false);
-  })
-  .catch(error => {
-    console.error('Error fetching survey details:', error)
-  
-    setIsLoading(false)
-  });
-  
-};
-  useEffect(()=>{
-    const fetchData = async()=>{
+  // const handleDeleteSurvey = (idm) => {
+  //   setIsLoading(true)
+  //   fetch(`${process.env.REACT_APP_API_URL}/survey/deleteSurvey/${idm}`, {
+  //     method: "DELETE"
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setIsLoading(false);
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching survey details:', error)
+
+  //       setIsLoading(false)
+  //     });
+
+  // };
+
+  useEffect(() => {
+    const fetchData = async () => {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/survey/admin/specificProduct/GetAllSurvey/${id}`);
 
       const data = await res.json();
       console.log(data)
       setItems(data)
-      setIsLoading(false)  
+      setIsLoading(false)
 
     };
 
     fetchData();
-  },[isLoading, id]);
+  }, [isLoading, id]);
 
-  if(isLoading){
-    return <Loading/>
+  if (isLoading) {
+    return <Loading />
   }
   return (
     <div>
-      <h2 className="text-2xl font-semibold text-center my-5">All Survey</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200">
-          <thead>
-            <tr className="bg-gray-100">
-              <th className="border border-gray-200 px-4 py-2">User Name</th>
-              <th className="border border-gray-200 px-4 py-2">Product Name</th>
-              <th className="border border-gray-200 px-4 py-2">View</th>
-              <th className="border border-gray-200 px-4 py-2">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            { items && items.map(val => (
-              <tr key={val._id}>
-               <td className="border text-center border-gray-200 px-4 py-2">{(val.name === "") ? "Unknown": val.name}</td>
-                <td className="border border-gray-200 align-middle text-center px-4 py-2 ">{val.productName1}</td>
-                <td className="border text-center border-gray-200 align-middle px-4 py-2">
-                  <div className='cursor-pointer inline-flex text-white py-1 px-4 rounded-md bg-cyan-500 hover:bg-cyan-600  gap-1'><Link to={`/admin/survey/details/${val._id}`} className='flex gap-1 align-middle'><FaEye className='w-3 h-3 self-center'/>View</Link></div>
-                </td>
-                <td className="border text-center border-gray-200 align-middle px-4 py-2">
-                  <div onClick={()=>handleDeleteSurvey(val._id)} className='cursor-pointer inline-flex text-white py-1 px-4 rounded-md bg-red-500 hover:bg-red-600  gap-1'>Delete</div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <h2 className="text-2xl font-semibold text-center my-5">Survey - {id}</h2>
+      <div className="previewContainer overflow-x-auto">
+
+        {items && items.map((survey, _) => (
+          <div key={_} className='bg-white px-3 py-4 rounded-md'>
+         {survey.productName1 === id &&  <ul className='my-4'>
+              <li><strong>Pros:</strong> {survey.pros1}</li>
+              <li><strong>cons:</strong> {survey.cons1}</li>
+              <li><strong>What were you using before {survey.productName1}?</strong> {survey.previousProduct_c1}</li>
+              <li><strong>Where did You Purchase it from?</strong> {survey.purchaseInformation1}</li>
+              <li><strong>Price :</strong> {survey.cost1}</li>
+              <li><strong>Is {survey.productName1} a better replacement for your current Product?</strong> {survey.comparisonSurvey1}</li>
+              <li><strong>Have You read the ingredients of {survey.productName1}?</strong> {survey.ingredientAwarness1}</li>
+              <li><strong>How much would you be willing to pay for {survey.productName1}?</strong> {survey.willingnesstoPay1}</li>
+              <li><strong>How many times you used {survey.productName1} since you received it?</strong> {survey.howManyTimes1}</li>
+              <li><strong>Have you seen a difference after using {survey.productName1} to your hair or skin?</strong> {survey.usageInformation1}</li>
+            </ul>
+}
+{survey.productName2 === id && <ul className='my-4'>
+              <li><strong>Pros:</strong> {survey.pros2}</li>
+              <li><strong>cons:</strong> {survey.cons2}</li>
+              <li><strong>What were you using before {survey.productName2}?</strong> {survey.previousProduct_c2}</li>
+              <li><strong>Where did You Purchase it from?</strong> {survey.purchaseInformation2}</li>
+              <li><strong>Price :</strong> {survey.cost2}</li>
+              <li><strong>Is {survey.productName2} a better replacement for your current Product?</strong> {survey.comparisonSurvey2}</li>
+              <li><strong>Have You read the ingredients of {survey.productName2}?</strong> {survey.ingredientAwarness2}</li>
+              <li><strong>How much would you be willing to pay for {survey.productName2}?</strong> {survey.willingnesstoPay2}</li>
+              <li><strong>How many times you used {survey.productName2} since you received it?</strong> {survey.howManyTimes2}</li>
+            </ul>
+}
+{survey.productName3 === id && 
+            <ul className='my-4'>
+              <li><strong>Pros:</strong> {survey.pros3}</li>
+              <li><strong>cons:</strong> {survey.cons3}</li>
+              <li><strong>What were you using before {survey.productName3}?</strong> {survey.previousProduct_c3}</li>
+              <li><strong>Where did You Purchase it from?</strong> {survey.purchaseInformation3}</li>
+              <li><strong>Price :</strong> {survey.cost3}</li>
+              <li><strong>Is {survey.productName3} a better replacement for your current Product?</strong> {survey.comparisonSurvey3}</li>
+              <li><strong>Have You read the ingredients of {survey.productName3}?</strong> {survey.ingredientAwarness3}</li>
+              <li><strong>How much would you be willing to pay for {survey.productName3}?</strong> {survey.willingnesstoPay3}</li>
+              <li><strong>How many times you used {survey.productName3} since you received it?</strong> {survey.howManyTimes3}</li>
+            </ul>
+}
+          </div>
+        ))}
       </div>
-      </div>
+    </div>
   )
 }
 
