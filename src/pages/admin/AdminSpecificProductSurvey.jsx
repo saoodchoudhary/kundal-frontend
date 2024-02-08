@@ -1,29 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState,forwardRef } from 'react'
 import Loading from '../../components/Loading';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useReactToPrint } from 'react-to-print';
 
-const AdminSpecificProductSurvey = () => {
+const AdminSpecificProductSurvey = forwardRef((props,ref) => {
   const { id } = useParams();
   const [items, setItems] = useState()
   const [isLoading, setIsLoading] = useState(true);
 
-  // const handleDeleteSurvey = (idm) => {
-  //   setIsLoading(true)
-  //   fetch(`${process.env.REACT_APP_API_URL}/survey/deleteSurvey/${idm}`, {
-  //     method: "DELETE"
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setIsLoading(false);
-  //     })
-  //     .catch(error => {
-  //       console.error('Error fetching survey details:', error)
-
-  //       setIsLoading(false)
-  //     });
-
-  // };
-
+  const printComponentRef = useRef();
+  const handlePrint = useReactToPrint({
+    
+    content: () => printComponentRef.current,
+  });
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(`${process.env.REACT_APP_API_URL}/survey/admin/specificProduct/GetAllSurvey/${id}`);
@@ -43,6 +32,11 @@ const AdminSpecificProductSurvey = () => {
   }
   return (
     <div>
+      <div className='flex justify-between px-5 mt-3'>
+     <Link className='bg-blue-600 text-white py-1 px-4 rounded-md ' to="/admin/showAllSurveyComments">All Comments</Link>
+       <button className='bg-green-600 text-white py-1 px-4 rounded-md ' onClick={handlePrint}>Print</button>
+      </div>
+    <div ref={printComponentRef}>
       <h2 className="text-2xl font-semibold text-center my-5">Survey - {id}</h2>
       <div className="previewContainer overflow-x-auto">
 
@@ -90,7 +84,8 @@ const AdminSpecificProductSurvey = () => {
         ))}
       </div>
     </div>
+    </div>
   )
-}
+})
 
 export default AdminSpecificProductSurvey
