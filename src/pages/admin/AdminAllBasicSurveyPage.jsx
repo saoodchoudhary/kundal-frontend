@@ -35,7 +35,7 @@ const AdminAllBasicSurveyPage = forwardRef((props, ref) => {
         </div>
         <div>
             <h2 className="text-2xl font-semibold text-center my-4">All Basic Information Comments</h2>
-            <div ref={printComponentRef}  className="previewContainer overflow-x-auto mt-8">
+            <div ref={printComponentRef}  className="previewContainer overflow-x-auto ">
     
                 {items && items.map((survey, index) => (
                     <div key={index} className='bg-white px-5 py-4 rounded-md  h-[100vh]'>
