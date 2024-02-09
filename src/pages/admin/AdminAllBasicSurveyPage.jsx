@@ -33,12 +33,12 @@ const AdminAllBasicSurveyPage = forwardRef((props, ref) => {
         <div className='flex justify-end px-5 my-3'>
             <button className='bg-green-600 text-white py-1 px-4 rounded-md ' onClick={handlePrint}>Print</button>
         </div>
-        <div ref={printComponentRef}>
+        <div>
             <h2 className="text-2xl font-semibold text-center my-4">All Basic Information Comments</h2>
-            <div className="previewContainer overflow-x-auto">
+            <div ref={printComponentRef}  className="previewContainer overflow-x-auto">
     
                 {items && items.map((survey, index) => (
-                    <div key={index} className='bg-white px-5 py-4 rounded-md mb-8 h-[100vh]'>
+                    <div key={index} className='bg-white px-5 py-4 rounded-md mt-8 h-[100vh]'>
                         <div className="mb-4">
                             <h3 className="text-lg font-semibold my-2">Personal Information</h3>
                             <ul>
