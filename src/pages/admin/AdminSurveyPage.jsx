@@ -43,7 +43,8 @@ const handleDeleteSurvey = (id) =>{
   return (
     <div>
       <h2 className="text-2xl font-semibold text-center my-5">All Survey</h2>
-      <div className='flex justify-end my-2 mx-2'>
+      <div className='flex justify-between my-2 mx-2'>
+        <Link className='bg-green-600 text-white px-4 py-1 rounded-md' to="/admin/allSectionSurvey">All Section</Link>
         <Link className='bg-green-600 text-white px-4 py-1 rounded-md' to="/admin/basicAllSurvey">All Basic Information</Link>
       </div>
       <div className="overflow-x-auto">

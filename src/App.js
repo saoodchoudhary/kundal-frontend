@@ -30,6 +30,7 @@ import AdminProductSurveyPage from './pages/admin/AdminProductSurveyPage';
 import AdminSpecificProductSurvey from './pages/admin/AdminSpecificProductSurvey';
 import GetAllSurveyCommentsPage from './pages/admin/GetAllSurveyCommentsPage';
 import AdminAllBasicSurveyPage from './pages/admin/AdminAllBasicSurveyPage';
+import AdminAllSectionSurveyPrintPage from './pages/admin/AdminAllSectionSurveyPrintPage';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
       <Route path="category" element={<AdminCategoryPage />} />
       <Route path="productSurvey" element={<AdminProductSurveyPage />} />
       <Route path="basicAllSurvey" element={<AdminAllBasicSurveyPage />} />
+      <Route path="allSectionSurvey" element={<AdminAllSectionSurveyPrintPage />} />
       <Route path="survey" element={<AdminSurveyPage />} />
       <Route path="survey/details/:id" element={<AdminDetailsSurveyPage />} />
       <Route path="survey/specificProduct/:id" element={<AdminSpecificProductSurvey />} />
