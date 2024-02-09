@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState,forwardRef } from 'react'
 import Loading from '../../components/Loading';
-import {  useParams } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 
 const GetAllSurveyCommentsPage = forwardRef((props,ref) =>{
-    const { id } = useParams();
     const [items, setItems] = useState()
     const [isLoading, setIsLoading] = useState(true);
   
@@ -25,7 +23,7 @@ const GetAllSurveyCommentsPage = forwardRef((props,ref) =>{
       };
   
       fetchData();
-    }, [isLoading, id]);
+    }, [isLoading]);
   
     if (isLoading) {
       return <Loading />
