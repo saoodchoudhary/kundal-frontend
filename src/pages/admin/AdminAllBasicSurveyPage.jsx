@@ -38,7 +38,7 @@ const AdminAllBasicSurveyPage = forwardRef((props, ref) => {
             <div ref={printComponentRef}  className="previewContainer overflow-x-auto ">
     
                 {items && items.map((survey, index) => (
-                    <div key={index} style={{ pageBreakAfter: 'always' }} className='bg-white px-5 py-4 rounded-md  h-[100vh]'>
+                    <div key={index} style={{ pageBreakAfter: 'always' }} className='bg-white px-5 py-4 rounded-md '>
                         <div className="mb-4">
                             <h3 className="text-lg font-semibold my-2">Personal Information</h3>
                             <table className='w-full border-collapse border'>
