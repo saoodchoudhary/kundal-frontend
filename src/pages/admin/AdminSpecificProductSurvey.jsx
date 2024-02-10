@@ -42,43 +42,164 @@ const AdminSpecificProductSurvey = forwardRef((props,ref) => {
 
         {items && items.map((survey, _) => (
           <div style={{ pageBreakAfter: 'always' }} key={_} className='bg-white px-3 py-4 rounded-md'>
-         {survey.productName1 === id &&  <ul className='my-4'>
-              <li><strong>Pros:</strong> {survey.pros1}</li>
-              <li><strong>cons:</strong> {survey.cons1}</li>
-              <li><strong>What were you using before {survey.productName1}?</strong> {survey.previousProduct_c1}</li>
-              <li><strong>Where did You Purchase it from?</strong> {survey.purchaseInformation1}</li>
-              <li><strong>Price :</strong> {survey.cost1}</li>
-              <li><strong>Is {survey.productName1} a better replacement for your current Product?</strong> {survey.comparisonSurvey1}</li>
-              <li><strong>Have You read the ingredients of {survey.productName1}?</strong> {survey.ingredientAwarness1}</li>
-              <li><strong>How much would you be willing to pay for {survey.productName1}?</strong> {survey.willingnesstoPay1}</li>
-              <li><strong>How many times you used {survey.productName1} since you received it?</strong> {survey.howManyTimes1}</li>
-              <li><strong>Have you seen a difference after using {survey.productName1} to your hair or skin?</strong> {survey.usageInformation1}</li>
-            </ul>
+         {survey.productName1 === id && 
+          <table className='w-full border-collapse border'>
+          <thead>
+              <tr>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>Field</th>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>Value</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>Product Name</th>
+                  <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.productName1}</td>
+              </tr>
+              <tr>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>Pros</th>
+                  <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.pros1}</td>
+              </tr>
+              <tr>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>cons</th>
+                  <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.cons1}</td>
+              </tr>
+              <tr>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>What were you using before {survey.productName1}?</th>
+                  <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.previousProduct_c1}</td>
+              </tr>
+              <tr>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>Where did You Purchase it from?</th>
+                  <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.purchaseInformation1}</td>
+              </tr>
+              <tr>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>Price</th>
+                  <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.cost1}</td>
+              </tr>
+              <tr>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>Is {survey.productName1} a better replacement for your current Product?</th>
+                  <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.comparisonSurvey1}</td>
+              </tr>
+              <tr>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>Have You read the ingredients of {survey.productName1}?</th>
+                  <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.ingredientAwarness1}</td>
+              </tr>
+              <tr>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>How much would you be willing to pay for {survey.productName1}?</th>
+                  <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.willingnesstoPay1}</td>
+              </tr>
+              <tr>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>How many times you used {survey.productName1} since you received it?</th>
+                  <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.howManyTimes1}</td>
+              </tr>
+              <tr>
+                  <th className='border border-gray-400 px-4 py-2 w-1/2'>Have you seen a difference after using {survey.productName1} to your hair or skin?</th>
+                  <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.usageInformation1}</td>
+              </tr>
+          </tbody>
+      </table>
 }
-{survey.productName2 === id && <ul className='my-4'>
-              <li><strong>Pros:</strong> {survey.pros2}</li>
-              <li><strong>cons:</strong> {survey.cons2}</li>
-              <li><strong>What were you using before {survey.productName2}?</strong> {survey.previousProduct_c2}</li>
-              <li><strong>Where did You Purchase it from?</strong> {survey.purchaseInformation2}</li>
-              <li><strong>Price :</strong> {survey.cost2}</li>
-              <li><strong>Is {survey.productName2} a better replacement for your current Product?</strong> {survey.comparisonSurvey2}</li>
-              <li><strong>Have You read the ingredients of {survey.productName2}?</strong> {survey.ingredientAwarness2}</li>
-              <li><strong>How much would you be willing to pay for {survey.productName2}?</strong> {survey.willingnesstoPay2}</li>
-              <li><strong>How many times you used {survey.productName2} since you received it?</strong> {survey.howManyTimes2}</li>
-            </ul>
+{survey.productName2 === id && <table className='w-full border-collapse border'>
+                                    <thead>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Field</th>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Product Name</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.productName2}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Pros</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.pros2}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>cons</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.cons2}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>What were you using before {survey.productName2}?</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.previousProduct_c2}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Where did You Purchase it from?</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.purchaseInformation2}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Price</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.cost2}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Is {survey.productName2} a better replacement for your current Product?</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.comparisonSurvey2}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Have You read the ingredients of {survey.productName2}?</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.ingredientAwarness2}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>How much would you be willing to pay for {survey.productName2}?</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.willingnesstoPay2}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>How many times you used {survey.productName2} since you received it?</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.howManyTimes2}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 }
 {survey.productName3 === id && 
-            <ul className='my-4'>
-              <li><strong>Pros:</strong> {survey.pros3}</li>
-              <li><strong>cons:</strong> {survey.cons3}</li>
-              <li><strong>What were you using before {survey.productName3}?</strong> {survey.previousProduct_c3}</li>
-              <li><strong>Where did You Purchase it from?</strong> {survey.purchaseInformation3}</li>
-              <li><strong>Price :</strong> {survey.cost3}</li>
-              <li><strong>Is {survey.productName3} a better replacement for your current Product?</strong> {survey.comparisonSurvey3}</li>
-              <li><strong>Have You read the ingredients of {survey.productName3}?</strong> {survey.ingredientAwarness3}</li>
-              <li><strong>How much would you be willing to pay for {survey.productName3}?</strong> {survey.willingnesstoPay3}</li>
-              <li><strong>How many times you used {survey.productName3} since you received it?</strong> {survey.howManyTimes3}</li>
-            </ul>
+              <table className='w-full border-collapse border'>
+              <thead>
+                  <tr>
+                      <th className='border border-gray-400 px-4 py-2 w-1/2'>Field</th>
+                      <th className='border border-gray-400 px-4 py-2 w-1/2'>Value</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <th className='border border-gray-400 px-4 py-2 w-1/2'>Product Name</th>
+                      <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.productName3}</td>
+                  </tr>
+                  <tr>
+                      <th className='border border-gray-400 px-4 py-2 w-1/2'>Pros</th>
+                      <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.pros3}</td>
+                  </tr>
+                  <tr>
+                      <th className='border border-gray-400 px-4 py-2 w-1/2'>cons</th>
+                      <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.cons3}</td>
+                  </tr>
+                  <tr>
+                      <th className='border border-gray-400 px-4 py-2 w-1/2'>What were you using before {survey.productName3}?</th>
+                      <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.previousProduct_c3}</td>
+                  </tr>
+                  <tr>
+                      <th className='border border-gray-400 px-4 py-2 w-1/2'>Where did You Purchase it from?</th>
+                      <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.purchaseInformation3}</td>
+                  </tr>
+                  <tr>
+                      <th className='border border-gray-400 px-4 py-2 w-1/2'>Price</th>
+                      <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.cost3}</td>
+                  </tr>
+                  <tr>
+                      <th className='border border-gray-400 px-4 py-2 w-1/2'>Is {survey.productName3} a better replacement for your current Product?</th>
+                      <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.comparisonSurvey3}</td>
+                  </tr>
+                  <tr>
+                      <th className='border border-gray-400 px-4 py-2 w-1/2'>Have You read the ingredients of {survey.productName3}?</th>
+                      <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.ingredientAwarness3}</td>
+                  </tr>
+                  <tr>
+                      <th className='border border-gray-400 px-4 py-2 w-1/2'>How much would you be willing to pay for {survey.productName3}?</th>
+                      <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.willingnesstoPay3}</td>
+                  </tr>
+                  <tr>
+                      <th className='border border-gray-400 px-4 py-2 w-1/2'>How many times you used {survey.productName3} since you received it?</th>
+                      <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.howManyTimes3}</td>
+                  </tr>
+              </tbody>
+          </table>
 }
           </div>
         ))}

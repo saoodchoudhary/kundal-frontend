@@ -41,39 +41,111 @@ const AdminAllBasicSurveyPage = forwardRef((props, ref) => {
                     <div key={index} style={{ pageBreakAfter: 'always' }} className='bg-white px-5 py-4 rounded-md  h-[100vh]'>
                         <div className="mb-4">
                             <h3 className="text-lg font-semibold my-2">Personal Information</h3>
-                            <ul>
-                                <li><strong>Name:</strong> {(survey.name === "") ? "Unknown" : survey.name}</li>
-                                <li><strong>Email:</strong> {survey.email}</li>
-                                <li><strong>Phone:</strong> {survey.phone}</li>
-                                <li><strong>Age:</strong> {survey.age}</li>
-                                <li><strong>Hair Kind:</strong> {survey.hairKind}</li>
-                                <li><strong>How Many Products did You Receive?</strong> {survey.maxProduct}</li>
-                            </ul>
+                            <table className='w-full border-collapse border'>
+                                    <thead>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Field</th>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Name</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{(survey.name === "") ? "Unknown" : survey.name}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Email</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.email}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Phone</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.phone}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Age</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.age}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Hair Kind</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.hairKind}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>How Many Products did You Receive?</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.maxProduct}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
                         </div>
     
                         <div className="mb-4">
-                            <h3 className="text-lg font-semibold my-2">Personal Care Routine</h3>
-                            <ul>
-                                <li><strong>Your personal care routine:</strong> {survey.personalCareRoutineA}</li>
-                                <li><strong>Where do you buy personal care products?</strong> {survey.personalCareRoutineB}</li>
-                                <li><strong>Hair care routine:</strong> {survey.personalCareRoutineC}</li>
-                            </ul>
-                        </div>
-    
-                        <div className="mb-4">
-                            <h3 className="text-lg font-semibold my-2">Product Preference</h3>
-                            <ul>
-                                <li><strong>Product Preference:</strong> {survey.q2}</li>
-                            </ul>
-                        </div>
-    
-                        <div className="mb-4">
-                            <h3 className="text-lg font-semibold my-2">Additional Information</h3>
-                            <ul>
-                                <li><strong>Allergies:</strong> {survey.allergies}</li>
-                                <li><strong>Extra Feedback:</strong> {survey.extraFeedback}</li>
-                            </ul>
-                        </div>
+                                <h3 className="text-lg font-semibold my-2">Personal Care Routine</h3>
+                                <table className='w-full border-collapse border'>
+                                    <thead>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Field</th>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Your personal care routine</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.personalCareRoutineA}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Where do you buy personal care products?</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.personalCareRoutineB}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Hair care routine</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.personalCareRoutineC}</td>
+                                        </tr>
+                                       
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div className="mb-4">
+                                <h3 className="text-lg font-semibold my-2">Product Preference</h3>
+                                <table className='w-full border-collapse border'>
+                                    <thead>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Field</th>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Product Preference</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.q2}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div className="mb-[120px]">
+                                <h3 className="text-lg font-semibold my-2">Additional Information</h3>
+                                <table className='w-full border-collapse border'>
+                                    <thead>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Field</th>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Allergies</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.allergies}</td>
+                                        </tr>
+                                        <tr>
+                                            <th className='border border-gray-400 px-4 py-2 w-1/2'>Extra Feedback</th>
+                                            <td className='border border-gray-400 px-4 py-2 w-1/2'>{survey.extraFeedback}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                     </div>
                 ))}
             </div>
