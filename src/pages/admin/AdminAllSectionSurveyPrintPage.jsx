@@ -34,11 +34,11 @@ const AdminAllSectionSurveyPrintPage = forwardRef((props, ref) => {
                 <button className='bg-green-600 text-white py-1 px-4 rounded-md ' onClick={handlePrint}>Print</button>
             </div>
             <div>
-                <h2 className="text-2xl font-semibold text-center my-4">All Basic Information Comments</h2>
+                <h2 className="text-2xl font-semibold text-center my-4">All Sections Survey</h2>
                 <div ref={printComponentRef} className="previewContainer overflow-x-auto ">
 
                     {items && items.map((survey, index) => (
-                        <div key={index} className='bg-white px-5 py-2 rounded-md  '>
+                        <div key={index} style={{ pageBreakAfter: 'always' }} className='bg-white px-5 py-2 rounded-md  '>
                             <div className="mb-4">
                                 <h3 className="text-lg font-semibold my-2">Personal Information</h3>
                                 <ul>

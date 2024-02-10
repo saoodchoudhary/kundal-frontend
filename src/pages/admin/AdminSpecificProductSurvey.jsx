@@ -41,7 +41,7 @@ const AdminSpecificProductSurvey = forwardRef((props,ref) => {
       <div className="previewContainer overflow-x-auto">
 
         {items && items.map((survey, _) => (
-          <div key={_} className='bg-white px-3 py-4 rounded-md'>
+          <div style={{ pageBreakAfter: 'always' }} key={_} className='bg-white px-3 py-4 rounded-md'>
          {survey.productName1 === id &&  <ul className='my-4'>
               <li><strong>Pros:</strong> {survey.pros1}</li>
               <li><strong>cons:</strong> {survey.cons1}</li>
